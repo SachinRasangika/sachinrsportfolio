@@ -11,28 +11,27 @@ const About = () => {
             <span>Who am I?</span>
           </div>
           
-          <h2 className="about-title">
-            Meet Sam Crawford - Your Dedicated Squarespace Web Designer
+                <h2 className="about-title">
+            Meet Sachin Silva - UI/UX Designer & Web Developer
           </h2>
           
           <div className="about-description">
             <p>
-              Looking to create a high-converting Squarespace website without the hassle of constant 
-              maintenance? Collaborate with me, Sam Crawford, your go-to{' '}
-              <a href="#" className="text-link">Squarespace website designer</a>. With 
-              a deep understanding of Squarespace's capabilities—from intuitive drag-and-drop interfaces to 
-              advanced custom CSS—I deliver top-tier designs tailored to your needs.
+              I am a creative UI/UX designer with a strong foundation in user-centered design and visual storytelling. 
+              Experienced in designing intuitive, high-performing digital products from concept to prototype, I bridge 
+              the gap between design and implementation with my full-stack development knowledge.
             </p>
             
             <p>
-              As a recognized Squarespace Circle Member, Expert, Partner, and Community Leader, I bring 
-              unparalleled skill and experience to every project. With over 450 successful websites under my 
-              belt, I don't just design—I create online experiences that resonate and convert.
+              Skilled in <strong>User Research, Personas, Wireframing & Prototyping (Figma), Usability Testing, Analysis, 
+              Design Systems, and UI Kits</strong>, I also ensure accessibility and responsive design across all projects. 
+              My development toolkit includes <strong>HTML, CSS, JavaScript, React, Bootstrap, TailwindCSS, MySQL, and MongoDB</strong>.
             </p>
             
             <p>
-              Ready to unlock the full potential of your online presence? Let's work together to craft a modern, 
-              impactful Squarespace website for your brand. <a href="#" className="text-link">Contact me today</a>!
+              I have contributed to projects like AI Integration Platforms, SaaS Platform Improvements, and luxury 
+              Water Villa booking engines, enhancing usability and creating engaging, user-friendly experiences. 
+              <a href="#" className="text-link">Contact me</a> to collaborate on your next digital product!
             </p>
           </div>
           
@@ -110,7 +109,7 @@ const About = () => {
         <div className="about-image-section">
           <div className="about-image-container">
             <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/27fe207567070289cc354806f6b5899d89a76b47?width=1081" 
+              src="https://media.licdn.com/dms/image/v2/D5603AQHVUP6mZ6Jy9A/profile-displayphoto-shrink_800_800/B56ZWaLrnwGQAc-/0/1742048508821?e=1758758400&v=beta&t=YOS5ZBJ7IfFsFN9DQlU8wt-xaJqAkHLnMRh0Sxqsqtc" 
               alt="Sam Crawford giving speech" 
               className="about-image"
             />
@@ -118,7 +117,7 @@ const About = () => {
           
           <div className="stats-overlay">
             <div className="stat-item">
-              <div className="stat-number">450+</div>
+              <div className="stat-number">15+</div>
               <div className="stat-label">Successful Websites</div>
             </div>
             <div className="stat-item">
