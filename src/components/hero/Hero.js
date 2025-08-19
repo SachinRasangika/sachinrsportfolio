@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './Hero.css';
 
 const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-background">
@@ -13,6 +28,13 @@ const Hero = () => {
       </div>
       
       <div className="hero-content">
+        <div className="hero-left-image">
+          <img 
+            src="https://api.builder.io/api/v1/image/assets/TEMP/27fe207567070289cc354806f6b5899d89a76b47?width=400" 
+            alt="Profile" 
+            className="profile-image"
+          />
+        </div>
         <div className="hero-text">
           <h1 className="hero-title">
             <span className="title-line">Sam Crawford: Your Award-</span>
@@ -33,13 +55,27 @@ const Hero = () => {
           </p>
           
           <div className="hero-buttons">
-            <button className="btn-primary">
-              <span>Schedule a call</span>
-              <svg width="16" height="16" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.25122 12.3687L12.0294 4.59045" stroke="#506C83" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12.0285 10.9546V4.59064H5.66455" stroke="#506C83" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <button className="btn-primary" onClick={toggleAudio}>
+              <span>Listen to myself</span>
+              {isPlaying ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="4" width="4" height="16" fill="#506C83"/>
+                  <rect x="14" y="4" width="4" height="16" fill="#506C83"/>
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21" fill="#506C83"/>
+                </svg>
+              )}
             </button>
+            <audio 
+              ref={audioRef} 
+              onEnded={() => setIsPlaying(false)}
+              preload="metadata"
+            >
+              <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav" />
+              Your browser does not support the audio element.
+            </audio>
             <button className="btn-secondary">
               Get in touch
             </button>
