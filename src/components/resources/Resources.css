@@ -1,0 +1,368 @@
+.resources-section {
+  background: #181A1D;
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+.resources-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.resources-header {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.resources-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, rgba(232, 236, 240, 0.30) 0%, rgba(80, 108, 131, 0.30) 100%);
+  backdrop-filter: blur(1.5px);
+  margin-bottom: 20px;
+}
+
+.tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFF;
+}
+
+.resources-tag span {
+  color: #FFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.28px;
+}
+
+.resources-title {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1.27;
+  letter-spacing: -0.96px;
+  text-transform: capitalize;
+  background: linear-gradient(91deg, #E8ECF0 0.14%, #506C83 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 834px;
+  margin-bottom: 0;
+}
+
+.all-resources-btn {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  display: flex;
+  width: 166px;
+  height: 54px;
+  padding: 18px 42px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: #506C83;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.all-resources-btn:hover {
+  background: #5a7590;
+  transform: translateY(-2px);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  grid-template-areas: 
+    "blog course-header"
+    "blog course-main"
+    "plugin design";
+}
+
+.resource-card {
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 36.13%, rgba(255, 255, 255, 0.20) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  pointer-events: none;
+}
+
+.blog-card {
+  grid-area: blog;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  min-height: 522px;
+}
+
+.course-header-card {
+  grid-area: course-header;
+  padding: 20px 40px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+}
+
+.course-main-card {
+  grid-area: course-main;
+  display: flex;
+  padding: 40px;
+  gap: 30px;
+  min-height: 374px;
+}
+
+.plugin-card {
+  grid-area: plugin;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  min-height: 472px;
+}
+
+.design-card {
+  grid-area: design;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  min-height: 472px;
+}
+
+.card-content {
+  flex: 1;
+  z-index: 2;
+  position: relative;
+}
+
+.card-category {
+  color: #FFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.card-title {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.48px;
+  text-transform: capitalize;
+  background: linear-gradient(90deg, #E8ECF0 0.14%, #506C83 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 16px 0;
+}
+
+.card-description {
+  color: #FFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
+  margin: 20px 0;
+}
+
+.access-btn {
+  display: flex;
+  width: 166px;
+  height: 54px;
+  padding: 18px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: #506C83;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.access-btn:hover {
+  background: #5a7590;
+  transform: translateY(-2px);
+}
+
+.card-image {
+  z-index: 1;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  mask: radial-gradient(70.71% 70.71% at 50% 50%, #FFF 0%, #000 100%);
+  -webkit-mask: radial-gradient(70.71% 70.71% at 50% 50%, #FFF 0%, #000 100%);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card .card-image {
+  margin-top: auto;
+  height: 271px;
+}
+
+.course-header-card .card-image {
+  height: 59px;
+  margin-left: auto;
+}
+
+.course-main-card .card-image {
+  width: 311px;
+  height: 275px;
+  flex-shrink: 0;
+}
+
+.plugin-card .card-image {
+  width: 301px;
+  height: 211px;
+  margin: 20px auto 0;
+}
+
+.design-card .card-image {
+  width: 100%;
+  height: 275px;
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .resources-container {
+    padding: 0 20px;
+  }
+  
+  .resources-title {
+    font-size: 36px;
+  }
+  
+  .all-resources-btn {
+    position: relative;
+    top: 20px;
+    right: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resources-section {
+    padding: 60px 0;
+  }
+  
+  .resources-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .resources-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "course-header"
+      "course-main"
+      "blog"
+      "plugin"
+      "design";
+    gap: 16px;
+  }
+  
+  .resource-card {
+    min-height: auto !important;
+  }
+  
+  .blog-card,
+  .plugin-card,
+  .design-card {
+    padding: 30px 20px;
+  }
+  
+  .course-main-card {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  
+  .course-main-card .card-image {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .plugin-card .card-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+  }
+  
+  .card-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resources-container {
+    padding: 0 16px;
+  }
+  
+  .resources-title {
+    font-size: 24px;
+  }
+  
+  .all-resources-btn,
+  .access-btn {
+    width: 140px;
+    height: 48px;
+    font-size: 12px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+.process {
+  background: #FFF;
+  padding: 2rem 0;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+}
+
+.process-container {
+  max-width: 1514px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.process-card {
+  width: 100%;
+  max-width: 437px;
+  height: 648px;
+  border-radius: 12px;
+  border: 1px solid rgba(80, 108, 131, 0.20);
+  padding: 33px;
+  position: relative;
+  background: #FFF;
+  overflow: hidden;
+}
+
+.step-number {
+  position: absolute;
+  top: 25px;
+  left: -23px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: clamp(120px, 15vw, 155px);
+  font-weight: 700;
+  line-height: 108px;
+  color: rgba(80, 108, 131, 0.04);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.process-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.process-title {
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 400;
+  line-height: 1.31;
+  letter-spacing: -0.72px;
+  text-transform: capitalize;
+  background: linear-gradient(92deg, #181A1D 0.26%, #506C83 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 2rem 0;
+  max-width: 279px;
+  position: relative;
+  z-index: 2;
+}
+
+.process-description {
+  color: #181A1D;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.process-description p {
+  margin: 0;
+}
+
+.process-link {
+  color: #181A1D;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.process-link:hover {
+  color: #506C83;
+}
+
+.process-image {
+  width: calc(100% + 14px);
+  height: 291px;
+  margin-left: -7px;
+  margin-right: -7px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.process-card:hover .process-image img {
+  transform: scale(1.05);
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(80, 108, 131, 0.1);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+  .process-container {
+    max-width: 900px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .process-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 437px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .process {
+    padding: 3rem 0;
+    min-height: auto;
+  }
+  
+  .process-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+  
+  .process-card {
+    height: auto;
+    min-height: 500px;
+    padding: 25px;
+  }
+  
+  .process-card:last-child {
+    grid-column: auto;
+  }
+  
+  .step-number {
+    font-size: clamp(80px, 20vw, 120px);
+    top: 15px;
+    left: -15px;
+  }
+  
+  .process-title {
+    font-size: clamp(20px, 5vw, 28px);
+    margin-bottom: 1.5rem;
+  }
+  
+  .process-description {
+    font-size: 14px;
+    margin-bottom: 2rem;
+  }
+  
+  .process-image {
+    height: 200px;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-container {
+    padding: 0 1rem;
+  }
+  
+  .process-card {
+    padding: 20px;
+    min-height: 450px;
+  }
+  
+  .step-number {
+    font-size: clamp(60px, 25vw, 100px);
+    top: 10px;
+    left: -10px;
+  }
+  
+  .process-title {
+    font-size: clamp(18px, 6vw, 24px);
+  }
+  
+  .process-description {
+    font-size: 13px;
+  }
+  
+  .process-image {
+    height: 180px;
+  }
+}
+
+/* Ensure proper stacking context */
+.process-card {
+  transform-style: preserve-3d;
+}
+
+.process-card > * {
+  position: relative;
+}
+
+/* Smooth transitions for all interactive elements */
+.process-card,
+.process-image img,
+.process-link {
+  transition: all 0.3s ease;
+}
