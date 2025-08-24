@@ -1,15 +1,28 @@
 {
   "files": {
-    "main.css": "/sachinrsportfolio/static/css/main.96df8cbd.css",
-    "main.js": "/sachinrsportfolio/static/js/main.d9f419ad.js",
+    "main.css": "/sachinrsportfolio/static/css/main.afde0fc7.css",
+    "main.js": "/sachinrsportfolio/static/js/main.55396912.js",
     "static/js/453.8436994d.chunk.js": "/sachinrsportfolio/static/js/453.8436994d.chunk.js",
+    "static/media/wvw.png": "/sachinrsportfolio/static/media/wvw.015c324d96d6ce4d931e.png",
+    "static/media/taurgo.png": "/sachinrsportfolio/static/media/taurgo.dcf5d05c2a1102c1ebab.png",
+    "static/media/fit4life.png": "/sachinrsportfolio/static/media/fit4life.ba8a23e1fdf06469b4a4.png",
+    "static/media/screencapture-localhost-3000-2024-12-08-03_31_59.png": "/sachinrsportfolio/static/media/screencapture-localhost-3000-2024-12-08-03_31_59.1422833871eddcd406aa.png",
+    "static/media/saral.png": "/sachinrsportfolio/static/media/saral.5fa76ba79ecd7e73cb62.png",
+    "static/media/redesignview.png": "/sachinrsportfolio/static/media/redesignview.02bacb85d08f2a48be46.png",
+    "static/media/hero.png": "/sachinrsportfolio/static/media/hero.b3940961ba86ea71bf25.png",
+    "static/media/frame94.png": "/sachinrsportfolio/static/media/frame94.5971b15de8fa25c1868c.png",
+    "static/media/1.png": "/sachinrsportfolio/static/media/1.0b2de63cbfc08a14e1d2.png",
+    "static/media/4.png": "/sachinrsportfolio/static/media/4.9fadba8307d94265cd52.png",
+    "static/media/3.png": "/sachinrsportfolio/static/media/3.e77e4fd732f3c6802f18.png",
+    "static/media/2.png": "/sachinrsportfolio/static/media/2.0fadf74a0c120fe5717d.png",
+    "static/media/logo.png": "/sachinrsportfolio/static/media/logo.bf6a8a07335dab368ce6.png",
     "index.html": "/sachinrsportfolio/index.html",
-    "main.96df8cbd.css.map": "/sachinrsportfolio/static/css/main.96df8cbd.css.map",
-    "main.d9f419ad.js.map": "/sachinrsportfolio/static/js/main.d9f419ad.js.map",
+    "main.afde0fc7.css.map": "/sachinrsportfolio/static/css/main.afde0fc7.css.map",
+    "main.55396912.js.map": "/sachinrsportfolio/static/js/main.55396912.js.map",
     "453.8436994d.chunk.js.map": "/sachinrsportfolio/static/js/453.8436994d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96df8cbd.css",
-    "static/js/main.d9f419ad.js"
+    "static/css/main.afde0fc7.css",
+    "static/js/main.55396912.js"
   ]
 }
