@@ -1,5 +1,9 @@
 import React from 'react';
 import './Resources.css';
+import grid1 from '../../assets/images/Home/1.png';
+import grid2 from '../../assets/images/Home/2.png';
+import grid3 from '../../assets/images/Home/3.png';
+import grid4 from '../../assets/images/Home/4.png';
 
 const Resources = () => {
   return (
@@ -25,13 +29,12 @@ const Resources = () => {
               </h3>
             </div>
             <div className="card-image">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/01c2ac57d0801efafc64a98684f34b648663acbf?width=1244" alt="Sam Crawford Web Designer" />
+              <img src={grid1}/>
             </div>
           </div>
 
           <div className="resource-card course-header-card">
             <div className="card-content">
-              <span className="card-category">Find the right course</span>
             </div>
             <div className="card-image">
               <img src="https://api.builder.io/api/v1/image/assets/TEMP/3c150fa2c56b6a2bb1e258db17b2d32d3b954684?width=1340" alt="Squarespace Brand Building" />
@@ -48,7 +51,7 @@ const Resources = () => {
               <button className="access-btn">Access now</button>
             </div>
             <div className="card-image">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/55cf5fe623827f979c635ff99aa5de3246b09b96?width=621" alt="Six Figure Design Club" />
+             <img src={grid2}/>
             </div>
           </div>
 
@@ -73,7 +76,7 @@ const Resources = () => {
               </h3>
             </div>
             <div className="card-image">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/c7cd6652f321f6e6773f8143627d931be41bd3da?width=1230" alt="Site Typography Image Squarespace" />
+             <img src={grid4}/>
             </div>
           </div>
         </div>

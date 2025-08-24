@@ -5,3 +5,4 @@ export { default as Portfolio } from './portfolio/Portfolio';
 export { default as Process } from './process/Process';
 export { default as Resources } from './resources/Resources';
 export { default as Footer } from './footer/Footer';
+export { default as ProjectView } from './ProjectView/ProjectView';

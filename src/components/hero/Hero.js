@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './Hero.css';
+import backgroundImage from '../../assets/hero.png';
 
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,7 +24,7 @@ const Hero = () => {
       <div className="hero-background">
         <img 
           className="hero-bg-image" 
-          src="https://api.builder.io/api/v1/image/assets/TEMP/a35fbfb1763c2d6b014bef83a36664066370e8c5?width=3840" 
+          src= {backgroundImage}
           alt="" 
         />
       </div>
@@ -77,7 +78,7 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Awards */}
+          {/* Awards
           <div className="awards-container">
             <div className="award-item">
               <img src="https://api.builder.io/api/v1/image/assets/TEMP/1f1b0d70c0194f565b035418dda9b15fce4a9668?width=271" alt="NASA Space App Challenge 2021" />
@@ -88,17 +89,17 @@ const Hero = () => {
             <div className="award-item">
               <img src="https://api.builder.io/api/v1/image/assets/TEMP/37ca985ac464a87055945294f84b8f21d759ba1a?width=271" alt="Designathon 2020 SLIIT" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Profile Image */}
-        <div className="hero-left-image">
+        {/* <div className="hero-left-image">
           <img 
             src="https://media.licdn.com/dms/image/v2/D5603AQHVUP6mZ6Jy9A/profile-displayphoto-shrink_800_800/B56ZWaLrnwGQAc-/0/1742048508821?e=1758758400&v=beta&t=YOS5ZBJ7IfFsFN9DQlU8wt-xaJqAkHLnMRh0Sxqsqtc" 
             alt="Sachin Silva" 
             className="profile-image"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );

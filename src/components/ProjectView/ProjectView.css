@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.project-container {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 120px 20px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.showcase-image-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  width: 100%;
+  padding: 0 60px; /* left and right spacing */
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #506C83;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.project-content {
+  max-width: 1360px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.saas-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(80, 108, 131, 0.30);
+  backdrop-filter: blur(1.5px);
+  width: fit-content;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #506C83;
+  flex-shrink: 0;
+}
+
+.badge-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #506C83;
+  letter-spacing: -0.28px;
+}
+
+.project-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 400;
+  line-height: 1.26;
+  letter-spacing: -0.96px;
+  text-transform: capitalize;
+  background: linear-gradient(91deg, #181A1D 0.26%, #506C83 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 20px 0;
+}
+
+.project-description p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.32px;
+  color: #181A1D;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Metadata */
+.project-metadata {
+  display: flex;
+  gap: 40px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metadata-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #506C83;
+  letter-spacing: -0.32px;
+}
+
+.metadata-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #181A1D;
+  letter-spacing: -0.32px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.horizontal-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(80,108,131,0.40) 4.2%, rgba(80,108,131,0) 100%);
+  margin: 20px 0;
+}
+
+/* Full Image */
+.full-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.full-image {
+  width: 100%;
+  height: auto;  /* important for full height image */
+  border-radius: 12px;
+  object-fit: contain; /* prevents cropping */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .full-image { width: 100%; }
+}
+@media (max-width: 480px) {
+  .full-image { width: 100%; }
+}
+
+/* Ensure text wraps */
+.project-description p, .metadata-value { white-space: normal; word-break: break-word; hyphens: auto; }
+a { word-break: break-all; overflow-wrap: break-word; }

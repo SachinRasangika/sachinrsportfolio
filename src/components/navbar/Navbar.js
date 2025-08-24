@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
@@ -32,14 +33,14 @@ const Navbar = () => {
         <div className="nav-container">
           <div className="logo">
             <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/7e30e0bc9c4466f8e0fae9877d487f43c1d53067?width=223" 
-              alt="by Crawford" 
+              src={logo}
+              alt="Sachinrs Logo" 
             />
           </div>
           
           <div className="nav-menu">
             <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">About</a>
+  
             
             <div 
               className="nav-dropdown"

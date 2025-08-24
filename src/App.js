@@ -1,18 +1,26 @@
 import React from 'react';
-import { Navbar, Hero, About, Portfolio, Process, Resources, Footer } from './components';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar, Hero, About, Portfolio, Process, Resources, Footer, ProjectView } from './components';
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
+    <Router>
       <Navbar />
-      <Hero />
-      <About />
-      <Portfolio />
-      <Process />
-      <Resources />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <About />
+            <Portfolio />
+            <Process />
+            <Resources />
+            <Footer />
+          </>
+        } />
+        <Route path="/project-view" element={<ProjectView />} />
+      </Routes>
+    </Router>
   );
 }
 

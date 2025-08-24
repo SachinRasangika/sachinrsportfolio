@@ -1,5 +1,6 @@
 import React from 'react';
 import './Process.css';
+import image1 from '../../assets/images/Home/3.png'
 
 const Process = () => {
   const processSteps = [
@@ -56,7 +57,7 @@ const Process = () => {
       id: '03',
       title: 'Handover training',
       description: "Upon your approval of the finished website, you'll receive bespoke handover training via a recorded Loom link. Plus, enjoy 30 days of free email support to help you transition smoothly.",
-      image: 'https://api.builder.io/api/v1/image/assets/TEMP/8ec8781edb44817c6249b6844935d52668e779a9?width=871',
+      image: image1,
       icon: (
         <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_4_2606)">
