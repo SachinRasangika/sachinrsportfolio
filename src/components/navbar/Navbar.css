@@ -91,6 +91,12 @@
 .logo img {
   width: 7rem;
   height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Ensure logo visibility in both modes */
+.header-dark .logo img {
+  filter: none; /* Keep logo as is since it should work on both backgrounds */
 }
 
 /* MENU */
@@ -104,6 +110,15 @@
   backdrop-filter: blur(4px);
   flex-wrap: wrap;
   gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode styles for all sections except hero */
+.header-dark .nav-menu {
+  background: rgba(24, 26, 29, 0.95);
+  border: 1px solid rgba(24, 26, 29, 0.3);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .nav-link,
@@ -114,6 +129,16 @@
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.header-dark .nav-link,
+.header-dark .nav-dropdown-trigger {
+  color: var(--color-white);
+}
+
+.header-dark .nav-dropdown-trigger svg path {
+  fill: var(--color-white);
 }
 
 .nav-dropdown {
@@ -131,6 +156,14 @@
   padding: 0.5rem 0;
   min-width: 10rem;
   z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.header-dark .dropdown-menu {
+  background: rgba(24, 26, 29, 0.95);
+  border: 1px solid rgba(80, 108, 131, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .dropdown-link {
@@ -138,6 +171,11 @@
   padding: 0.5rem 1rem;
   font-size: var(--font-base);
   color: var(--color-white);
+  transition: all 0.3s ease;
+}
+
+.dropdown-link:hover {
+  background: rgba(80, 108, 131, 0.2);
 }
 
 /* ACTION BUTTON */
@@ -157,8 +195,17 @@
 }
 
 .schedule-call-btn:hover {
-  background: #3d5466;
+  background: #5a7390;
   transform: translateY(-2px);
+}
+
+.header-dark .schedule-call-btn {
+  border: 1px solid rgba(80, 108, 131, 0.3);
+  background: var(--color-accent);
+}
+
+.header-dark .schedule-call-btn:hover {
+  background: #5a7390;
 }
 
 /* -------------------- */

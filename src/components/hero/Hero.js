@@ -22,11 +22,22 @@ const Hero = () => {
     <section className="hero">
       {/* Background */}
       <div className="hero-background">
-        <img 
-          className="hero-bg-image" 
+        <img
+          className="hero-bg-image"
           src= {backgroundImage}
-          alt="" 
+          alt=""
         />
+
+        {/* Cinematic Blur Effects */}
+        <div className="blur-effects">
+          <div className="blur-orb blur-orb-1"></div>
+          <div className="blur-orb blur-orb-2"></div>
+          <div className="blur-orb blur-orb-3"></div>
+          <div className="blur-orb blur-orb-4"></div>
+          <div className="blur-orb blur-orb-5"></div>
+          <div className="blur-orb blur-orb-6"></div>
+          <div className="blur-orb blur-orb-7"></div>
+        </div>
       </div>
 
       <div className="hero-content">

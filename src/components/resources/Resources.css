@@ -272,37 +272,87 @@
   margin-top: auto;
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+  .resources-container {
+    max-width: 1200px;
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 1200px) {
   .resources-container {
-    padding: 0 20px;
+    padding: 0 25px;
   }
-  
+
   .resources-title {
-    font-size: 36px;
+    font-size: clamp(32px, 4vw, 40px);
   }
-  
+
   .all-resources-btn {
     position: relative;
     top: 20px;
     right: auto;
     margin-top: 20px;
+    align-self: flex-start;
+  }
+
+  .resources-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 992px) {
+  .resources-section {
+    padding: 70px 0;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "course-header course-header"
+      "course-main course-main"
+      "blog plugin"
+      "design design";
+    gap: 18px;
+  }
+
+  .resource-card {
+    min-height: auto !important;
+  }
+
+  .course-main-card {
+    gap: 25px;
   }
 }
 
 @media (max-width: 768px) {
   .resources-section {
     padding: 60px 0;
+    min-height: auto;
   }
-  
+
+  .resources-container {
+    padding: 0 20px;
+  }
+
   .resources-title {
-    font-size: 28px;
+    font-size: clamp(24px, 5vw, 32px);
     margin-bottom: 20px;
   }
-  
+
+  .all-resources-btn {
+    width: 150px;
+    height: 50px;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
   .resources-grid {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "course-header"
       "course-main"
       "blog"
@@ -310,59 +360,196 @@
       "design";
     gap: 16px;
   }
-  
-  .resource-card {
-    min-height: auto !important;
-  }
-  
+
   .blog-card,
   .plugin-card,
   .design-card {
-    padding: 30px 20px;
+    padding: 35px 25px;
   }
-  
+
+  .course-header-card {
+    padding: 25px 25px;
+    height: auto;
+    min-height: 100px;
+  }
+
   .course-main-card {
     flex-direction: column;
-    padding: 30px 20px;
-    gap: 20px;
+    padding: 35px 25px;
+    gap: 25px;
   }
-  
+
   .course-main-card .card-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .plugin-card .card-image {
     width: 100%;
     height: 200px;
   }
-  
-  .plugin-card .card-image {
-    width: 100%;
-    height: 180px;
-  }
-  
+
   .card-title {
     font-size: 20px;
+    line-height: 1.2;
   }
-  
+
   .card-description {
     font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .access-btn {
+    width: 150px;
+    height: 50px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resources-container {
+    padding: 0 18px;
+  }
+
+  .blog-card,
+  .plugin-card,
+  .design-card,
+  .course-main-card {
+    padding: 30px 20px;
+  }
+
+  .course-header-card {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .course-main-card .card-image {
+    height: 200px;
+  }
+
+  .plugin-card .card-image {
+    height: 180px;
   }
 }
 
 @media (max-width: 480px) {
+  .resources-section {
+    padding: 50px 0;
+  }
+
   .resources-container {
     padding: 0 16px;
   }
-  
+
   .resources-title {
-    font-size: 24px;
+    font-size: clamp(20px, 6vw, 28px);
   }
-  
-  .all-resources-btn,
-  .access-btn {
+
+  .all-resources-btn {
     width: 140px;
     height: 48px;
-    font-size: 12px;
+    font-size: 11px;
+    padding: 16px 20px;
   }
-  
+
+  .resources-grid {
+    gap: 14px;
+  }
+
+  .blog-card,
+  .plugin-card,
+  .design-card,
+  .course-main-card {
+    padding: 25px 18px;
+  }
+
+  .course-header-card {
+    padding: 18px;
+    min-height: 80px;
+  }
+
+  .course-main-card {
+    gap: 20px;
+  }
+
+  .card-category {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
   .card-title {
     font-size: 18px;
+    margin: 12px 0;
+  }
+
+  .card-description {
+    font-size: 13px;
+    margin: 16px 0;
+  }
+
+  .access-btn {
+    width: 130px;
+    height: 46px;
+    font-size: 11px;
+    padding: 14px 18px;
+  }
+
+  .course-main-card .card-image {
+    height: 180px;
+  }
+
+  .plugin-card .card-image {
+    height: 160px;
+  }
+
+  .design-card .card-image {
+    height: 200px;
+  }
+
+  .blog-card .card-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .resources-container {
+    padding: 0 12px;
+  }
+
+  .resources-title {
+    font-size: clamp(18px, 7vw, 24px);
+  }
+
+  .blog-card,
+  .plugin-card,
+  .design-card,
+  .course-main-card {
+    padding: 20px 15px;
+  }
+
+  .course-header-card {
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+
+  .access-btn,
+  .all-resources-btn {
+    width: 120px;
+    height: 44px;
+    font-size: 10px;
+  }
+
+  .course-main-card .card-image,
+  .plugin-card .card-image,
+  .design-card .card-image,
+  .blog-card .card-image {
+    height: 160px;
   }
 }

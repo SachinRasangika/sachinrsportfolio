@@ -1,13 +1,324 @@
+/* =====================================
+   ROOT FONT & BASE SETUP
+   ===================================== */
+:root {
+  /* Base font setup for better performance */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Modern font stack with better fallbacks */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #181A1D;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
+/* Code styling */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Code', 'Cascadia Code', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 
+    'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+/* =====================================
+   GLOBAL LOADING & PERFORMANCE
+   ===================================== */
+
+/* Loading state styles */
+.loading {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loaded {
+  opacity: 1;
+}
+
+/* Critical resource hints */
+.preload-hint {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  background-image: url('data:image/svg+xml;base64,'); /* Placeholder for critical assets */
+}
+
+/* =====================================
+   ENHANCED SCROLLBARS
+   ===================================== */
+
+/* Webkit Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(24, 26, 29, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 108, 131, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 108, 131, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(80, 108, 131, 0.7);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(80, 108, 131, 0.3) rgba(24, 26, 29, 0.05);
+}
+
+/* =====================================
+   FOCUS & INTERACTION IMPROVEMENTS
+   ===================================== */
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: 2px solid #506C83;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Better button interactions */
+button:active {
+  transform: translateY(1px);
+}
+
+/* Link improvements */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* =====================================
+   RESPONSIVE IMAGES & MEDIA
+   ===================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  font-style: italic; /* Fallback text styling */
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+/* Lazy loading optimization */
+img[loading="lazy"] {
+  transition: opacity 0.3s ease;
+}
+
+/* Video responsiveness */
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================
+   SELECTION & INTERACTION
+   ===================================== */
+
+/* Custom text selection */
+::selection {
+  background-color: rgba(80, 108, 131, 0.2);
+  color: #181A1D;
+}
+
+::-moz-selection {
+  background-color: rgba(80, 108, 131, 0.2);
+  color: #181A1D;
+}
+
+/* Disable text selection on UI elements */
+button,
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* =====================================
+   ACCESSIBILITY IMPROVEMENTS
+   ===================================== */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #506C83;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 9999;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* =====================================
+   PERFORMANCE & ANIMATION CONTROLS
+   ===================================== */
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  img {
+    filter: contrast(1.2);
+  }
+  
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* =====================================
+   MOBILE SPECIFIC OPTIMIZATIONS
+   ===================================== */
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific styles */
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+}
+
+/* Android specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    background-image: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Touch-specific styles */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* =====================================
+   PRINT STYLES
+   ===================================== */
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+  
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Hide non-essential elements */
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Page breaks */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  p, img {
+    page-break-inside: avoid;
+  }
 }

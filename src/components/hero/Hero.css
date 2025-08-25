@@ -36,6 +36,272 @@
   z-index: -1;
 }
 
+/* Cinematic Background Effects */
+.blur-effects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Main cinematic overlay */
+.blur-effects::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(80, 108, 131, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(232, 236, 240, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(24, 26, 29, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* Moving light rays */
+.blur-effects::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    conic-gradient(from 45deg at 20% 80%, transparent, rgba(80, 108, 131, 0.1), transparent),
+    conic-gradient(from 225deg at 80% 20%, transparent, rgba(232, 236, 240, 0.05), transparent);
+  animation: rotate-rays 60s linear infinite;
+  z-index: 2;
+}
+
+@keyframes rotate-rays {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.blur-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: soft-light;
+}
+
+/* Orb 1 - Primary Brand Color */
+.blur-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(80, 108, 131, 0.6), rgba(80, 108, 131, 0.3), rgba(80, 108, 131, 0.1));
+  top: 5%;
+  left: 5%;
+  animation-name: float1;
+  animation-duration: 30s;
+}
+
+/* Orb 2 - Lighter Brand Shade */
+.blur-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(106, 137, 159, 0.5), rgba(106, 137, 159, 0.25), rgba(106, 137, 159, 0.08));
+  top: 55%;
+  right: 10%;
+  animation-name: float2;
+  animation-duration: 35s;
+}
+
+/* Orb 3 - Accent Light */
+.blur-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(232, 236, 240, 0.3), rgba(232, 236, 240, 0.15), rgba(232, 236, 240, 0.05));
+  top: 25%;
+  right: 25%;
+  animation-name: float3;
+  animation-duration: 28s;
+}
+
+/* Orb 4 - Dark Accent */
+.blur-orb-4 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2), rgba(24, 26, 29, 0.1));
+  bottom: 15%;
+  left: 25%;
+  animation-name: float4;
+  animation-duration: 32s;
+}
+
+/* Orb 5 - Secondary Brand */
+.blur-orb-5 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(61, 84, 102, 0.5), rgba(61, 84, 102, 0.25), rgba(61, 84, 102, 0.1));
+  top: 45%;
+  left: 45%;
+  animation-name: float5;
+  animation-duration: 26s;
+}
+
+/* Additional Orbs for more cinematic depth */
+.blur-orb-6 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(80, 108, 131, 0.3), rgba(80, 108, 131, 0.1), transparent);
+  top: 70%;
+  right: 40%;
+  animation-name: float6;
+  animation-duration: 20s;
+  filter: blur(40px);
+}
+
+.blur-orb-7 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(232, 236, 240, 0.2), rgba(232, 236, 240, 0.08), transparent);
+  top: 80%;
+  left: 60%;
+  animation-name: float7;
+  animation-duration: 38s;
+  filter: blur(60px);
+}
+
+/* Animation Keyframes */
+/* Enhanced Cinematic Animations */
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  20% {
+    transform: translate(80px, -60px) scale(1.15) rotate(45deg);
+    opacity: 0.6;
+  }
+  40% {
+    transform: translate(30px, 90px) scale(0.9) rotate(90deg);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translate(-60px, 40px) scale(1.1) rotate(180deg);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translate(40px, -30px) scale(0.95) rotate(270deg);
+    opacity: 0.45;
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.35;
+  }
+  25% {
+    transform: translate(-90px, -120px) rotate(90deg) scale(1.25);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(130px, 70px) rotate(180deg) scale(0.8);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(-50px, 110px) rotate(270deg) scale(1.1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  16% {
+    transform: translate(-80px, 140px) scale(1.35) rotate(60deg);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(160px, -90px) scale(0.7) rotate(120deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-110px, -70px) scale(1.15) rotate(180deg);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translate(90px, 120px) scale(0.85) rotate(240deg);
+    opacity: 0.35;
+  }
+  83% {
+    transform: translate(-40px, -100px) scale(1.05) rotate(300deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(180px, -140px) rotate(120deg) scale(1.2);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translate(-120px, 90px) rotate(240deg) scale(0.9);
+    opacity: 0.35;
+  }
+}
+
+@keyframes float5 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 0.35;
+  }
+  20% {
+    transform: translate(-170px, 110px) scale(1.45) rotate(72deg);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translate(120px, -130px) scale(0.6) rotate(144deg);
+    opacity: 0.2;
+  }
+  60% {
+    transform: translate(200px, 160px) scale(1.25) rotate(216deg);
+    opacity: 0.45;
+  }
+  80% {
+    transform: translate(-80px, -50px) scale(0.8) rotate(288deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float6 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-100px, -80px) scale(1.3);
+    opacity: 0.15;
+  }
+}
+
+@keyframes float7 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translate(120px, -60px) rotate(90deg) scale(0.7);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-80px, 100px) rotate(180deg) scale(1.1);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translate(60px, -120px) rotate(270deg) scale(0.9);
+    opacity: 0.25;
+  }
+}
+
 /* Content Layout */
 .hero-content {
   width: 100%;
@@ -166,6 +432,20 @@
     width: 260px;
     height: 300px;
   }
+
+  /* Reduce blur effect intensity on tablets */
+  .blur-orb {
+    filter: blur(50px);
+    opacity: 0.35;
+  }
+  .blur-orb-1, .blur-orb-2, .blur-orb-3, .blur-orb-4, .blur-orb-5 {
+    width: 75%;
+    height: 75%;
+  }
+  .blur-orb-6, .blur-orb-7 {
+    width: 70%;
+    height: 70%;
+  }
 }
 
 /* Mobiles */
@@ -195,6 +475,21 @@
     flex: 0 0 100px;
     height: 60px;
   }
+
+  /* Optimize blur effects for mobile */
+  .blur-orb {
+    filter: blur(35px);
+    opacity: 0.25;
+    animation-duration: 18s !important;
+  }
+  .blur-orb-1, .blur-orb-2, .blur-orb-3, .blur-orb-4, .blur-orb-5 {
+    width: 55%;
+    height: 55%;
+  }
+  .blur-orb-6, .blur-orb-7 {
+    width: 50%;
+    height: 50%;
+  }
 }
 
 /* Small Mobiles */
@@ -218,5 +513,25 @@
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  /* Minimal blur effects for performance */
+  .blur-orb {
+    filter: blur(25px);
+    opacity: 0.2;
+    animation-duration: 12s !important;
+  }
+  .blur-orb-4, .blur-orb-5, .blur-orb-6, .blur-orb-7 {
+    display: none; /* Hide some orbs on small screens for performance */
+  }
+  .blur-orb-1, .blur-orb-2, .blur-orb-3 {
+    width: 45%;
+    height: 45%;
+  }
+
+  /* Disable complex background animations on small screens */
+  .blur-effects::before,
+  .blur-effects::after {
+    opacity: 0.5;
   }
 }
