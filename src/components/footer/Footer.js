@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
           
           <div className="footer-social">
-            <a href="#" className="social-link" aria-label="Behance">
+            <a href="https://www.behance.net/sanchezii" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Behance">
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_behance)">
                   <path d="M15.75 7.81055H21.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -84,24 +84,8 @@ const Footer = () => {
                 </defs>
               </svg>
             </a>
-            
-            <a href="#" className="social-link" aria-label="Dribbble">
-              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#clip0_dribbble)">
-                  <path d="M12 21.3105C16.9706 21.3105 21 17.2811 21 12.3105C21 7.33999 16.9706 3.31055 12 3.31055C7.02944 3.31055 3 7.33999 3 12.3105C3 17.2811 7.02944 21.3105 12 21.3105Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M6.65625 19.5546C7.99157 17.3428 9.87573 15.5137 12.126 14.2445C14.3764 12.9753 16.9164 12.3091 19.5 12.3105C20.0053 12.3105 20.5059 12.3358 21 12.3846" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M17.6244 5.28906C16.2193 7.01611 14.4467 8.40803 12.4356 9.36343C10.4246 10.3188 8.22581 10.8136 5.99937 10.8119C5.05061 10.8121 4.10391 10.7229 3.17188 10.5456" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M8.05469 4.21875C10.3104 5.54193 12.1807 7.43213 13.4799 9.70167C14.7791 11.9712 15.4621 14.5411 15.4609 17.1562C15.4618 18.3816 15.3128 19.6026 15.0175 20.7919" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-                <defs>
-                  <clipPath id="clip0_dribbble">
-                    <rect width="24" height="24" fill="white" transform="translate(0 0.310547)"/>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
-            
-            <a href="#" className="social-link" aria-label="LinkedIn">
+
+            <a href="https://www.linkedin.com/in/sachin-rasangika-94338a191/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_linkedin)">
                   <path d="M20.25 3.31055H3.75C3.33579 3.31055 3 3.64634 3 4.06055V20.5605C3 20.9747 3.33579 21.3105 3.75 21.3105H20.25C20.6642 21.3105 21 20.9747 21 20.5605V4.06055C21 3.64634 20.6642 3.31055 20.25 3.31055Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -117,14 +101,26 @@ const Footer = () => {
                 </defs>
               </svg>
             </a>
-            
-            <a href="#" className="social-link" aria-label="YouTube">
-              <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.1875 16.5605C29.1875 16.5605 29 15.248 28.4375 14.6855C27.75 13.9355 26.9375 13.9355 26.5625 13.873C23.9375 13.6855 20 13.6855 20 13.6855C20 13.6855 16.0625 13.6855 13.4375 13.873C13.0625 13.9355 12.25 13.9355 11.5625 14.6855C11 15.248 10.8125 16.5605 10.8125 16.5605C10.8125 16.5605 10.625 18.0605 10.625 19.623V21.0605C10.625 22.5605 10.8125 24.123 10.8125 24.123C10.8125 24.123 11 25.4355 11.5625 25.998C12.25 26.748 13.1875 26.748 13.625 26.8105C15.125 26.9355 20 26.998 20 26.998C20 26.998 23.9375 26.998 26.5625 26.8105C26.9375 26.748 27.75 26.748 28.4375 25.998C29 25.4355 29.1875 24.123 29.1875 24.123C29.1875 24.123 29.375 22.623 29.375 21.0605V19.623C29.375 18.0605 29.1875 16.5605 29.1875 16.5605ZM18.0625 22.748V17.498L23.125 20.123L18.0625 22.748Z" fill="white"/>
+
+            <a href="https://github.com/SachinRasangika" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1.25C5.925 1.25 1 6.175 1 12.25C1 17.1 4.175 21.175 8.538 22.688C9.037 22.775 9.225 22.463 9.225 22.188V20.325C6.162 20.95 5.537 18.775 5.537 18.775C5.088 17.538 4.387 17.225 4.387 17.225C3.412 16.575 4.462 16.588 4.462 16.588C5.537 16.663 6.112 17.663 6.112 17.663C7.062 19.25 8.625 18.775 9.262 18.513C9.35 17.825 9.637 17.35 9.95 17.1C7.613 16.85 5.15 15.95 5.15 11.663C5.15 10.513 5.538 9.575 6.125 8.85C6.025 8.6 5.65 7.538 6.225 6.088C6.225 6.088 7.125 5.813 9.225 7.163C10.088 6.938 11.05 6.825 12 6.825C12.95 6.825 13.912 6.938 14.775 7.163C16.875 5.8 17.775 6.088 17.775 6.088C18.35 7.525 17.975 8.6 17.875 8.85C18.463 9.575 18.85 10.513 18.85 11.663C18.85 15.963 16.375 16.85 14.025 17.1C14.425 17.438 14.775 18.1 14.775 19.125V22.188C14.775 22.463 14.963 22.788 15.475 22.688C19.825 21.163 23 17.1 23 12.25C23 6.175 18.075 1.25 12 1.25Z" fill="white"/>
               </svg>
             </a>
-            
-            <a href="#" className="social-link" aria-label="Email">
+
+            <a href="https://www.facebook.com/share/1AY2um7oZo/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.5C24 6.20101 18.627 1.07397 12 1.07397C5.373 1.07397 0 6.20101 0 12.5C0 18.126 4.388 22.674 10.125 23.676V15.984H7.078V12.5H10.125V9.85699C10.125 6.87201 11.917 5.20801 14.658 5.20801C15.97 5.20801 17.344 5.45001 17.344 5.45001V8.42999H15.83C14.34 8.42999 13.875 9.35098 13.875 10.297V12.5H17.203L16.671 15.984H13.875V23.676C19.612 22.674 24 18.126 24 12.5Z" fill="white"/>
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/sanchez.98__?igsh=Nms3ODhhd3doc2cz&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 8.66699C10.159 8.66699 8.667 10.159 8.667 12C8.667 13.841 10.159 15.333 12 15.333C13.841 15.333 15.333 13.841 15.333 12C15.333 10.159 13.841 8.66699 12 8.66699ZM21.75 12C21.75 10.6755 21.762 9.36299 21.687 8.04149C21.612 6.52649 21.279 5.19599 20.205 4.12199C19.128 3.04499 17.8005 2.71499 16.2855 2.63999C14.961 2.56499 13.6485 2.57699 12.327 2.57699C10.9995 2.57699 9.687 2.56499 8.36549 2.63999C6.85049 2.71499 5.51999 3.04799 4.44599 4.12199C3.36899 5.19899 3.03899 6.52649 2.96399 8.04149C2.88899 9.36599 2.90099 10.6785 2.90099 12C2.90099 13.3215 2.88899 14.637 2.96399 15.9585C3.03899 17.4735 3.37199 18.804 4.44599 19.878C5.52299 20.955 6.85049 21.285 8.36549 21.36C9.68999 21.435 11.0025 21.423 12.324 21.423C13.6515 21.423 14.964 21.435 16.2855 21.36C17.8005 21.285 19.131 20.952 20.205 19.878C21.282 18.801 21.612 17.4735 21.687 15.9585C21.765 14.637 21.75 13.3245 21.75 12ZM12 16.833C9.33149 16.833 7.16699 14.6685 7.16699 12C7.16699 9.33149 9.33149 7.16699 12 7.16699C14.6685 7.16699 16.833 9.33149 16.833 12C16.833 14.6685 14.6685 16.833 12 16.833ZM17.004 8.02499C16.3515 8.02499 15.825 7.49849 15.825 6.84599C15.825 6.19349 16.3515 5.66699 17.004 5.66699C17.6565 5.66699 18.183 6.19349 18.183 6.84599C18.1832 7.00069 18.1531 7.15395 18.0943 7.29698C18.0355 7.44001 17.9491 7.56995 17.8395 7.67959C17.7299 7.78923 17.5999 7.87564 17.4569 7.93445C17.3139 7.99326 17.1606 8.02334 17.006 8.02349L17.004 8.02499Z" fill="white"/>
+              </svg>
+            </a>
+
+            <a href="mailto:sachinrasangika@gmail.com" className="social-link" aria-label="Email">
               <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_email)">
                   <path d="M3 5.56055H21V18.3105C21 18.5094 20.921 18.7002 20.7803 18.8408C20.6397 18.9815 20.4489 19.0605 20.25 19.0605H3.75C3.55109 19.0605 3.36032 18.9815 3.21967 18.8408C3.07902 18.7002 3 18.5094 3 18.3105V5.56055Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

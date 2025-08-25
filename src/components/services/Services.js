@@ -5,13 +5,13 @@ import './Services.css';
 const Services = () => {
   const services = [
     // ================= BENTO GRID CARDS =================
-    // Large Card
+    // Large Card (Main Feature)
     {
       id: 'experience-hashbaze',
       icon: <FiBriefcase />,
-      title: 'HashBaze · UI/UX Engineer Intern',
-      description: 'Mar 2025 – Present',
-      details: 'Designed intuitive interfaces, collaborated with product teams to improve user flows, and implemented design solutions that enhanced platform usability.',
+      title: 'Current Role: UI/UX Engineer Intern',
+      description: 'HashBaze • Mar 2025 – Present',
+      details: 'Designing intuitive interfaces, collaborating with product teams to improve user flows, and implementing design solutions that enhance platform usability and user satisfaction.',
       size: 'large'
     },
 
@@ -19,16 +19,17 @@ const Services = () => {
     {
       id: 'experience-taurgo',
       icon: <FiBriefcase />,
-      title: 'Taurgo · UI/UX Designer Intern',
-      description: 'Aug 2024 – Feb 2025',
-      details: 'Led the design of responsive web components, streamlined the user experience for multiple projects, and contributed to design system improvements for consistency across products.',
+      title: 'Previous Experience',
+      description: 'Taurgo • UI/UX Designer Intern',
+      details: 'Aug 2024 – Feb 2025: Led responsive web component design, streamlined UX for multiple projects, and contributed to design system improvements.',
       size: 'medium'
     },
     {
-      id: 'achievement-designthon-2021',
-      icon: <FiAward />,
-      title: 'Designthon Challenge',
-      description: 'Top 10 (2021)',
+      id: 'education-overview',
+      icon: <FiBook />,
+      title: 'Education Journey',
+      description: 'Academic Background & Learning Path',
+      details: 'Currently pursuing B.Sc. (Hons) in Computer Science at SLIIT, with strong foundation in design and technology.',
       size: 'medium'
     },
 
@@ -37,40 +38,30 @@ const Services = () => {
       id: 'education-sliit',
       icon: <FiBook />,
       title: 'SLIIT City Campus',
-      description: 'B.Sc. (Hons) in Computer Science and Software Engineering – University of Bedfordshire',
+      description: 'B.Sc. Computer Science & Software Engineering',
       details: '2024 – Expected',
-      size: 'small'
-    },
-    {
-      id: 'education-dharmasoka',
-      icon: <FiBook />,
-      title: 'G/Dharmasoka College',
-      description: 'G.C.E. Advanced Level – Commerce Stream',
-      details: '2017',
       size: 'small'
     },
     {
       id: 'achievement-nasa',
       icon: <FiAward />,
-      title: 'NASA Space Apps Challenge',
-      description: 'Global Connection Award (2021)',
+      title: 'NASA Space Apps',
+      description: 'Global Connection Award 2021',
+      size: 'small'
+    },
+    {
+      id: 'achievement-designthon-2021',
+      icon: <FiAward />,
+      title: 'Designthon 2021',
+      description: 'Top 10 Finalist',
       size: 'small'
     },
     {
       id: 'achievement-designthon-2020',
       icon: <FiAward />,
-      title: 'Designthon Challenge',
-      description: 'Top 10 (2020)',
+      title: 'Designthon 2020',
+      description: 'Top 10 Finalist',
       size: 'small'
-    },
-
-    // Common Card
-    {
-      id: 'common-portfolio',
-      icon: <FiUser />,
-      title: 'Portfolio Overview',
-      description: 'A complete snapshot of my journey, skills, and recognitions, all in one place.',
-      size: 'medium'
     }
   ];
 

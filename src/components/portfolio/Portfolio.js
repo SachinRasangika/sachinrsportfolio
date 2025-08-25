@@ -27,7 +27,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="projects">
       <div className="portfolio-background">
         <div className="portfolio-content">
           <div className="portfolio-header">

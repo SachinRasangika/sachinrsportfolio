@@ -273,9 +273,74 @@
   transition: all 0.3s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background: #5a7390;
   transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Message Styles */
+.success-message {
+  width: 100%;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(80, 108, 131, 0.2) 0%, rgba(80, 108, 131, 0.1) 100%);
+  border: 1px solid rgba(80, 108, 131, 0.3);
+  text-align: center;
+  color: #fff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  animation: slideInUp 0.3s ease-out;
+}
+
+.success-message span {
+  font-size: 15px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.success-message p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin: 8px 0 0 0;
+  line-height: 1.4;
+}
+
+.success-message strong {
+  color: #506C83;
+  font-weight: 600;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Enhanced Responsive Design */
@@ -459,6 +524,18 @@
     font-size: 12px;
   }
 
+  .success-message {
+    padding: 16px;
+  }
+
+  .success-message span {
+    font-size: 14px;
+  }
+
+  .success-message p {
+    font-size: 12px;
+  }
+
   .contact-border {
     padding: 5px;
     border-width: 5px;
@@ -478,5 +555,17 @@
   .form-group select,
   .form-group textarea {
     padding: 14px 16px;
+  }
+
+  .success-message {
+    padding: 14px;
+  }
+
+  .success-message span {
+    font-size: 13px;
+  }
+
+  .success-message p {
+    font-size: 11px;
   }
 }

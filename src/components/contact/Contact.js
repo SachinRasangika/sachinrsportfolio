@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -8,6 +9,10 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const form = useRef();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,19 +24,78 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    setIsLoading(true);
+
+    // EmailJS configuration from environment variables
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+    // Check if EmailJS is configured
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS not configured. Please set up environment variables.');
+      // Fallback to mailto
+      const emailSubject = `Portfolio Contact: ${formData.subject} - ${formData.name}`;
+      const emailBody = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ASubject: ${formData.subject}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+      const mailtoLink = `mailto:sachinrasangika@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+      window.location.href = mailtoLink;
+      setIsLoading(false);
+      alert('Email service not configured. Your email client will open with the pre-filled message.');
+      return;
+    }
+
+    // Prepare the email data
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: 'sachinrasangika@gmail.com'
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        setIsSubmitted(true);
+        setIsLoading(false);
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+          setIsSubmitted(false);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error('Email sending failed:', error);
+        setIsLoading(false);
+
+        // Fallback to mailto if EmailJS fails
+        const emailSubject = `Portfolio Contact: ${formData.subject} - ${formData.name}`;
+        const emailBody = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ASubject: ${formData.subject}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+        const mailtoLink = `mailto:sachinrasangika@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+
+        if (confirm('Email service unavailable. Would you like to open your email client instead?')) {
+          window.location.href = mailtoLink;
+        } else {
+          alert('Please send your message directly to: sachinrasangika@gmail.com');
+        }
+      });
   };
 
   const handleScheduleCall = () => {
     const phoneNumber = '+94774698175';
-    const message = 'Hi! I would like to schedule a call to discuss my project.';
+    const message = 'Hi Sachin! I came across your portfolio and would like to discuss a potential opportunity/collaboration with you.';
     const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <section className="contact-section">
+    <section className="contact-section" id="contact">
       <div className="contact-container">
         <div className="contact-border">
           <div className="contact-background">
@@ -47,15 +111,13 @@ const Contact = () => {
               <div className="contact-left">
                 <div className="contact-badge">
                   <div className="badge-dot"></div>
-                  <span>Your dream site</span>
+                  <span>Associate UI/UX Engineer</span>
                 </div>
-                
-                <h2 className="contact-title">Start your project</h2>
-                
+
+                <h2 className="contact-title">Let's Work Together</h2>
+
                 <p className="contact-description">
-                  Join the ranks of businesses that trust my expertise. Start
-                  your project with a free discovery call and see how we can
-                  bring your vision to life.
+                  I'm open to new opportunities and collaborations. Whether you're a startup, agency, or established company looking for a passionate UI/UX Engineer, I'd love to hear about your project and discuss how I can contribute to your team's success.
                 </p>
 
                 <div className="contact-features">
@@ -93,44 +155,12 @@ const Contact = () => {
                         </defs>
                       </svg>
                     </div>
-                    <span className="feature-text">Custom Design & Features</span>
-                  </div>
-
-                  <div className="feature-item">
-                    <div className="feature-icon seo-icon">
-                      <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clipPath="url(#clip0_4_3856)">
-                          <path d="M51.9399 3.98047H3.93994V51.9805H51.9399V3.98047Z" fill="#506C83" fillOpacity="0.3"/>
-                          <path d="M51.6899 4.23047H4.18994V51.7305H51.6899V4.23047Z" stroke="#506C83" strokeOpacity="0.2" strokeWidth="0.5"/>
-                          <mask id="mask0_4_3856" style={{maskType:"luminance"}} maskUnits="userSpaceOnUse" x="16" y="16" width="23" height="23">
-                            <path d="M38.9399 16.9805H16.9399V38.9805H38.9399V16.9805Z" fill="white"/>
-                          </mask>
-                          <g mask="url(#mask0_4_3856)">
-                            <path d="M26.5649 33.4805C30.3619 33.4805 33.4399 30.4025 33.4399 26.6055C33.4399 22.8085 30.3619 19.7305 26.5649 19.7305C22.7679 19.7305 19.6899 22.8085 19.6899 26.6055C19.6899 30.4025 22.7679 33.4805 26.5649 33.4805Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M31.4265 31.4668L36.19 36.2303" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                          </g>
-                          <path d="M51.4399 0.980469V7.98047" stroke="#506C83"/>
-                          <path d="M47.9399 4.48047H54.9399" stroke="#506C83"/>
-                          <path d="M51.4399 47.9805V54.9805" stroke="#506C83"/>
-                          <path d="M47.9399 51.4805H54.9399" stroke="#506C83"/>
-                          <path d="M4.43994 0.980469V7.98047" stroke="#506C83"/>
-                          <path d="M0.939941 4.48047H7.93994" stroke="#506C83"/>
-                          <path d="M4.43994 47.9805V54.9805" stroke="#506C83"/>
-                          <path d="M0.939941 51.4805H7.93994" stroke="#506C83"/>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_4_3856">
-                            <rect width="54" height="54" fill="white" transform="translate(0.939941 0.980469)"/>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                    <span className="feature-text">Effective SEO</span>
+                    <span className="feature-text">User-Centered Design & Development</span>
                   </div>
                 </div>
 
                 <button className="schedule-call-btn" onClick={handleScheduleCall}>
-                  <span>Schedule a call</span>
+                  <span>Get in touch via WhatsApp</span>
                   <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.18921 12.0204L11.9673 4.24219" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M11.9665 10.6061V4.24219H5.60254" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -139,7 +169,7 @@ const Contact = () => {
               </div>
 
               <div className="contact-right">
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form ref={form} className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="name">
@@ -183,11 +213,12 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Select one</option>
-                      <option value="web-design">Web Design</option>
-                      <option value="development">Development</option>
-                      <option value="consulting">Consulting</option>
-                      <option value="other">Other</option>
+                      <option value="">Select inquiry type</option>
+                      <option value="job-opportunity">Job Opportunity</option>
+                      <option value="freelance-project">Freelance Project</option>
+                      <option value="collaboration">Collaboration</option>
+                      <option value="portfolio-inquiry">Portfolio Inquiry</option>
+                      <option value="general">General Question</option>
                     </select>
                   </div>
 
@@ -198,7 +229,7 @@ const Contact = () => {
                     <textarea
                       id="message"
                       name="message"
-                      placeholder="How we can help you?"
+                      placeholder="Tell me about your project or opportunity..."
                       value={formData.message}
                       onChange={handleInputChange}
                       rows="6"
@@ -206,9 +237,25 @@ const Contact = () => {
                     ></textarea>
                   </div>
 
-                  <button type="submit" className="submit-btn">
-                    Submit
-                  </button>
+                  {isSubmitted ? (
+                    <div className="success-message">
+                      <span>✅ Thank you! Your message has been sent successfully.</span>
+                      <p style={{fontSize: '14px', margin: '8px 0 0 0', opacity: 0.8}}>
+                        I'll get back to you as soon as possible at <strong>{formData.email}</strong>
+                      </p>
+                    </div>
+                  ) : (
+                    <button type="submit" className="submit-btn" disabled={isLoading}>
+                      {isLoading ? (
+                        <span style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'}}>
+                          <span className="loading-spinner"></span>
+                          Sending...
+                        </span>
+                      ) : (
+                        'Send Message'
+                      )}
+                    </button>
+                  )}
                 </form>
               </div>
             </div>

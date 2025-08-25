@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       {/* Background */}
       <div className="hero-background">
         <img
