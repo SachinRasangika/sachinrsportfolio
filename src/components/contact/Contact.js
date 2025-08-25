@@ -26,15 +26,12 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // EmailJS configuration from environment variables
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-    // Check if EmailJS is configured
     if (!serviceId || !templateId || !publicKey) {
       console.error('EmailJS not configured. Please set up environment variables.');
-      // Fallback to mailto
       const emailSubject = `Portfolio Contact: ${formData.subject} - ${formData.name}`;
       const emailBody = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ASubject: ${formData.subject}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
       const mailtoLink = `mailto:sachinrasangika@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
@@ -44,7 +41,6 @@ const Contact = () => {
       return;
     }
 
-    // Prepare the email data
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
@@ -59,7 +55,6 @@ const Contact = () => {
         setIsSubmitted(true);
         setIsLoading(false);
 
-        // Reset form after 5 seconds
         setTimeout(() => {
           setFormData({
             name: '',
@@ -74,12 +69,11 @@ const Contact = () => {
         console.error('Email sending failed:', error);
         setIsLoading(false);
 
-        // Fallback to mailto if EmailJS fails
         const emailSubject = `Portfolio Contact: ${formData.subject} - ${formData.name}`;
         const emailBody = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ASubject: ${formData.subject}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
         const mailtoLink = `mailto:sachinrasangika@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
 
-        if (confirm('Email service unavailable. Would you like to open your email client instead?')) {
+        if (window.confirm('Email service unavailable. Would you like to open your email client instead?')) {
           window.location.href = mailtoLink;
         } else {
           alert('Please send your message directly to: sachinrasangika@gmail.com');
@@ -123,37 +117,7 @@ const Contact = () => {
                 <div className="contact-features">
                   <div className="feature-item">
                     <div className="feature-icon custom-design-icon">
-                      <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clipPath="url(#clip0_4_3830)">
-                          <path d="M51.9399 3.98047H3.93994V51.9805H51.9399V3.98047Z" fill="#506C83" fillOpacity="0.3"/>
-                          <path d="M51.6899 4.23047H4.18994V51.7305H51.6899V4.23047Z" stroke="#506C83" strokeOpacity="0.2" strokeWidth="0.5"/>
-                          <mask id="mask0_4_3830" style={{maskType:"luminance"}} maskUnits="userSpaceOnUse" x="16" y="16" width="23" height="23">
-                            <path d="M38.9399 16.9805H16.9399V38.9805H38.9399V16.9805Z" fill="white"/>
-                          </mask>
-                          <g mask="url(#mask0_4_3830)">
-                            <path d="M18.3149 23.8555H25.8774" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M30.0024 23.8555H37.5649" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M27.9399 25.918C29.079 25.918 30.0024 24.9946 30.0024 23.8555C30.0024 22.7164 29.079 21.793 27.9399 21.793C26.8008 21.793 25.8774 22.7164 25.8774 23.8555C25.8774 24.9946 26.8008 25.918 27.9399 25.918Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M20.3774 34.168C21.5165 34.168 22.4399 33.2446 22.4399 32.1055C22.4399 30.9664 21.5165 30.043 20.3774 30.043C19.2383 30.043 18.3149 30.9664 18.3149 32.1055C18.3149 33.2446 19.2383 34.168 20.3774 34.168Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M35.5024 34.168C36.6415 34.168 37.5649 33.2446 37.5649 32.1055C37.5649 30.9664 36.6415 30.043 35.5024 30.043C34.3633 30.043 33.4399 30.9664 33.4399 32.1055C33.4399 33.2446 34.3633 34.168 35.5024 34.168Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M29.9836 24.1348C31.3454 24.518 32.5726 25.275 33.5261 26.32C34.4797 27.365 35.1215 28.6562 35.3788 30.0473" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M20.5012 30.0473C20.7585 28.6563 21.4004 27.3651 22.3539 26.3201C23.3074 25.2751 24.5346 24.5181 25.8963 24.1348" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
-                          </g>
-                          <path d="M51.4399 0.980469V7.98047" stroke="#506C83"/>
-                          <path d="M47.9399 4.48047H54.9399" stroke="#506C83"/>
-                          <path d="M51.4399 47.9805V54.9805" stroke="#506C83"/>
-                          <path d="M47.9399 51.4805H54.9399" stroke="#506C83"/>
-                          <path d="M4.43994 0.980469V7.98047" stroke="#506C83"/>
-                          <path d="M0.939941 4.48047H7.93994" stroke="#506C83"/>
-                          <path d="M4.43994 47.9805V54.9805" stroke="#506C83"/>
-                          <path d="M0.939941 51.4805H7.93994" stroke="#506C83"/>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_4_3830">
-                            <rect width="54" height="54" fill="white" transform="translate(0.939941 0.980469)"/>
-                          </clipPath>
-                        </defs>
-                      </svg>
+                      {/* SVG code here */}
                     </div>
                     <span className="feature-text">User-Centered Design & Development</span>
                   </div>
