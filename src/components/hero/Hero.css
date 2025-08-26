@@ -1092,34 +1092,36 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     max-width: 100%;
   }
 
-  .video-gradient-overlay {
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 60%,
-      rgba(0, 0, 0, 0.2) 80%,
-      rgba(0, 0, 0, 0.4) 100%
-    );
-  }
-
-  @media (max-width: 768px) {
-    .video-gradient-overlay {
-      display: none !important;
-    }
-
-    .hero-video-background {
-      background: transparent !important;
-    }
-  }
 }
 
 @media (max-width: 768px) {
+  /* Completely disable video background and overlays in mobile */
+  .hero-video-mode .hero-video-background {
+    display: none !important;
+  }
+
+  .hero-video-mode .video-gradient-overlay {
+    display: none !important;
+  }
+
+  /* Remove any hero overlays in video mode */
+  .hero-video-mode::before,
+  .hero-video-mode::after {
+    display: none !important;
+  }
+
+  /* Ensure hero section background is transparent in video mode */
+  .hero-video-mode {
+    background: transparent !important;
+  }
+
   .hero-video-content {
     padding: 0;
     gap: 0;
     flex-direction: column;
     position: relative;
     min-height: 100vh;
+    background: transparent !important;
   }
 
   .hero-video-section {
@@ -1130,8 +1132,10 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     height: 100vh;
     max-width: none;
     z-index: 1;
-    background: transparent;
-    filter: none;
+    background: transparent !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .video-container {
@@ -1164,6 +1168,12 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     background: transparent !important;
     border: none !important;
     opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+    /* Ensure maximum video visibility */
+    transform: none !important;
+    box-shadow: none !important;
+    outline: none !important;
   }
 
   .hero-video-text {
@@ -1199,14 +1209,36 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
 }
 
 @media (max-width: 480px) {
+  /* Ensure all overlays are disabled on small screens too */
+  .hero-video-mode .hero-video-background {
+    display: none !important;
+  }
+
+  .hero-video-mode .video-gradient-overlay {
+    display: none !important;
+  }
+
+  .hero-video-mode::before,
+  .hero-video-mode::after {
+    display: none !important;
+  }
+
+  .hero-video-mode {
+    background: transparent !important;
+  }
+
   .hero-video-content {
     padding: 0;
     gap: 0;
+    background: transparent !important;
   }
 
   .hero-video-section {
     max-width: none;
-    background: transparent;
+    background: transparent !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .video-container {
@@ -1219,6 +1251,15 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     transform: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 1000 !important;
+    position: relative !important;
+    box-shadow: none !important;
+    outline: none !important;
   }
 
   .hero-video-text {
