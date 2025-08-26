@@ -120,6 +120,11 @@
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.3s ease;
+  /* Reset button styles */
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 .header-dark .nav-link,

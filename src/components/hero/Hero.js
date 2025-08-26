@@ -118,7 +118,7 @@ const Hero = () => {
                 {/* Download CV */}
                 <button className="btn-secondary">
                   <a
-                    href="/Sachin_Silva_CV.pdf"
+                    href="/Sachin_Silva_UIUX.pdf"
                     download
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
@@ -163,7 +163,7 @@ const Hero = () => {
                 {/* Download CV */}
                 <button className="btn-secondary">
                   <a
-                    href="/Sachin_Silva_CV.pdf"
+                    href="/Sachin_Silva_UIUX.pdf"
                     download
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../assets/logo.png';
 
@@ -6,6 +7,8 @@ const Navbar = () => {
   const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const closeAnnouncement = () => {
     setIsAnnouncementVisible(false);
@@ -16,6 +19,32 @@ const Navbar = () => {
     const message = 'Hi! I would like to schedule a call to discuss my project.';
     const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+  };
+
+  const handleNavigation = (sectionId) => {
+    setIsMobileMenuOpen(false);
+
+    // If we're on the project view page, navigate back to main page first
+    if (location.pathname === '/project-view') {
+      navigate('/');
+      // Wait for the page to load before scrolling
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    } else {
+      // If we're already on the main page, just scroll to the section
+      scrollToSection(sectionId);
+    }
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   useEffect(() => {
@@ -71,10 +100,10 @@ const Navbar = () => {
           </div>
           
           <div className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
-            <a href="#home" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-            <a href="#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-            <a href="#projects" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
-            <a href="#contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+            <button className="nav-link" onClick={() => handleNavigation('home')}>Home</button>
+            <button className="nav-link" onClick={() => handleNavigation('about')}>About</button>
+            <button className="nav-link" onClick={() => handleNavigation('projects')}>Projects</button>
+            <button className="nav-link" onClick={() => handleNavigation('contact')}>Contact</button>
           </div>
 
           <div className="hamburger-menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>

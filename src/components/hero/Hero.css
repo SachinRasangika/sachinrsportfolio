@@ -1104,9 +1104,7 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
 
   @media (max-width: 768px) {
     .video-gradient-overlay {
-      background: transparent !important;
-      backdrop-filter: none !important;
-      filter: none !important;
+      display: none !important;
     }
 
     .hero-video-background {
@@ -1141,7 +1139,9 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     height: 100%;
     position: relative;
     background: transparent;
-    filter: none;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .video-container > div {
@@ -1159,19 +1159,20 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     height: 100% !important;
     object-fit: cover;
     filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     background: transparent !important;
     border: none !important;
+    opacity: 1 !important;
   }
 
   .hero-video-text {
     position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 2rem 1rem;
     margin-top: auto;
-    backdrop-filter: blur(10px);
-    /* Ensure text overlay doesn't interfere with video behind */
-    -webkit-backdrop-filter: blur(10px);
+    /* Remove blur effects that interfere with video visibility */
   }
 
   .hero-video-text .hero-description {
