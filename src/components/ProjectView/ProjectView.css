@@ -40,7 +40,7 @@
 .project-header {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   position: relative;
 }
 
@@ -53,6 +53,7 @@
   background: rgba(80, 108, 131, 0.30);
   backdrop-filter: blur(1.5px);
   width: fit-content;
+  margin-bottom: 40px;
 }
 
 .badge-dot {
@@ -75,14 +76,20 @@
   font-family: 'Inter', sans-serif;
   font-size: clamp(32px, 5vw, 46px);
   font-weight: 400;
-  line-height: 1.26;
+  line-height: 1.2;
   letter-spacing: -0.96px;
   text-transform: capitalize;
   background: linear-gradient(91deg, #181A1D 0.26%, #506C83 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 20px 0;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+.project-description {
+  margin: 0;
+  padding-top: 0;
 }
 
 .project-description p {
@@ -97,37 +104,6 @@
   overflow-wrap: break-word;
 }
 
-/* Metadata */
-.project-metadata {
-  display: flex;
-  gap: 40px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.metadata-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.metadata-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #506C83;
-  letter-spacing: -0.32px;
-}
-
-.metadata-value {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #181A1D;
-  letter-spacing: -0.32px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
 
 .horizontal-divider {
   width: 100%;

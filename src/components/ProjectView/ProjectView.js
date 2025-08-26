@@ -28,36 +28,14 @@ const ProjectView = () => {
       {/* Header Section */}
       <div className="project-content">
         <div className="project-header">
+          <h1 className="project-title">{project.title}</h1>
           <div className="saas-badge">
             <div className="badge-dot"></div>
             <span className="badge-text">{project.category}</span>
           </div>
-          <h1 className="project-title">{project.title}</h1>
           <div className="project-description">
             <p>{project.description}</p>
           </div>
-        </div>
-
-        {/* Metadata */}
-        <div className="project-metadata">
-          {project.client && (
-            <div className="metadata-item">
-              <span className="metadata-label">Client</span>
-              <span className="metadata-value">{project.client}</span>
-            </div>
-          )}
-          {project.date && (
-            <div className="metadata-item">
-              <span className="metadata-label">Date</span>
-              <span className="metadata-value">{project.date}</span>
-            </div>
-          )}
-          {project.technologies && (
-            <div className="metadata-item">
-              <span className="metadata-label">Tech</span>
-              <span className="metadata-value">{project.technologies}</span>
-            </div>
-          )}
         </div>
 
         <div className="horizontal-divider"></div>

@@ -14,12 +14,66 @@ const Portfolio = () => {
   const navigate = useNavigate();
 
   const projects = [
-    { id: 1, title: "Water Villa World", category: "Travel", image: p3 },
-    { id: 2, title: "Web Design & Development", category: "Non-profit", image: p2 },
-    { id: 3, title: "Saral.edu UI Design", category: "Education", image: saralImage },
-    { id: 4, title: "Water World Kelaniya", category: "Homepage Recreation", image: project4Image },
-    { id: 5, title: "Fit4Life Fitness Tracker", category: "Web App", image: fit4LifeImage },
-    { id: 6, title: "Taurgo SaaS Platform", category: "SaaS", image: taurgoImage },
+    {
+      id: 1,
+      title: "Water Villa World",
+      category: "Travel",
+      image: p3,
+      description: "A comprehensive travel booking platform designed for luxury water villa accommodations. This project focuses on creating an immersive user experience that showcases premium destinations with stunning visuals and intuitive booking functionality. The design emphasizes the serene and luxurious nature of water villas while maintaining excellent usability across all devices.",
+      client: "Water Villa Resorts",
+      date: "December 2024",
+      technologies: "React, Node.js, MongoDB, Stripe API"
+    },
+    {
+      id: 2,
+      title: "Web Design & Development",
+      category: "Non-profit",
+      image: p2,
+      description: "A complete website redesign for a non-profit organization focused on community outreach and social impact. The project involved creating a modern, accessible design that effectively communicates the organization's mission while making it easy for visitors to get involved and donate. Special attention was given to mobile responsiveness and loading performance.",
+      client: "Community Care Foundation",
+      date: "November 2024",
+      technologies: "React, CSS3, Firebase, Payment Gateway"
+    },
+    {
+      id: 3,
+      title: "Saral.edu UI Design",
+      category: "Education",
+      image: saralImage,
+      description: "An innovative educational platform interface designed to simplify online learning. Saral.edu features a clean, student-friendly design with intuitive navigation, progress tracking, and interactive learning modules. The design prioritizes accessibility and ease of use to help students of all backgrounds engage with educational content effectively.",
+      client: "Saral Education Ltd.",
+      date: "October 2024",
+      technologies: "React, Material-UI, Chart.js, REST API"
+    },
+    {
+      id: 4,
+      title: "Water World Kelaniya",
+      category: "Homepage Recreation",
+      image: project4Image,
+      description: "A vibrant and engaging homepage redesign for Water World Kelaniya, a popular recreational water park. The project captures the fun and excitement of the water park experience through dynamic layouts, bright colors, and interactive elements. The design successfully increased visitor engagement and improved conversion rates for ticket bookings.",
+      client: "Water World Entertainment",
+      date: "September 2024",
+      technologies: "HTML5, CSS3, JavaScript, WordPress"
+    },
+    {
+      id: 5,
+      title: "Fit4Life Fitness Tracker",
+      category: "Web App",
+      image: fit4LifeImage,
+      description: "A comprehensive fitness tracking web application that helps users monitor their health goals, track workouts, and maintain nutrition records. The app features real-time progress visualization, social sharing capabilities, and personalized workout recommendations. The interface is designed to motivate users and make fitness tracking an enjoyable daily habit.",
+      client: "Personal Project",
+      date: "August 2024",
+      technologies: "React, Express.js, PostgreSQL, Chart.js"
+    },
+    {
+      id: 6,
+      title: "Taurgo SaaS Platform",
+      category: "SaaS",
+      image: taurgoImage,
+      description: "A sophisticated SaaS platform designed for business process automation and workflow management. Taurgo provides companies with tools to streamline operations, manage teams, and track productivity metrics. The platform features a modern dashboard design, advanced analytics, and seamless integration capabilities with popular business tools.",
+      client: "Taurgo Technologies",
+      date: "July 2024",
+      technologies: "React, Node.js, PostgreSQL, Docker, AWS"
+    },
   ];
 
   const handleProjectClick = (project) => {
