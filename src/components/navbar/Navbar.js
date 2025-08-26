@@ -5,6 +5,7 @@ import logo from '../../assets/logo.png';
 const Navbar = () => {
   const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const closeAnnouncement = () => {
     setIsAnnouncementVisible(false);
@@ -51,10 +52,7 @@ const Navbar = () => {
         <div className="announcement-bar">
           <div className="announcement-content">
             <div className="announcement-indicator"></div>
-            <span className="announcement-text">Looking for a new Squarespace website?</span>
-            <div className="announcement-cta">
-              <span className="cta-text">Get in touch now</span>
-            </div>
+            <span className="announcement-text">Looking for new opportunity</span>
           </div>
           <button className="close-announcement" onClick={closeAnnouncement}>
             ×
@@ -72,12 +70,17 @@ const Navbar = () => {
             />
           </div>
           
-          <div className="nav-menu">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="#about" className="nav-link">About</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            
-            <a href="#contact" className="nav-link">Contact</a>
+          <div className={`nav-menu ${isMobileMenuOpen ? 'nav-menu-open' : ''}`}>
+            <a href="#home" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+            <a href="#about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+            <a href="#projects" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+            <a href="#contact" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+          </div>
+
+          <div className="hamburger-menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
           </div>
           
           <div className="nav-actions">

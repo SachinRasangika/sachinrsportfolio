@@ -795,19 +795,40 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
 
 /* Mobiles */
 @media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 6rem 1rem 2rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero-title {
     margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
   }
   .title-line {
     font-size: clamp(1.5rem, 6vw, 2.25rem);
+    text-align: center;
   }
   .hero-description {
     font-size: var(--font-tiny);
     margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 100%;
   }
   .hero-buttons {
     justify-content: center;
     margin-bottom: 2rem;
+    width: 100%;
   }
   .btn-primary, .btn-secondary {
     font-size: var(--font-tiny);
@@ -855,8 +876,19 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
 /* Small Mobiles */
 @media (max-width: 480px) {
   .hero-content {
-    padding-top: 4rem;
+    padding: 4rem 1rem 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
+
+  .hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .hero-left-image {
     width: 200px;
     height: 240px;
@@ -864,6 +896,8 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
   .hero-buttons {
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
+    align-items: center;
   }
   .btn-primary, .btn-secondary {
     width: 100%;
@@ -873,6 +907,7 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
+    width: 100%;
   }
 
   /* Minimal blur effects for performance */

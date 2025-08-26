@@ -50,16 +50,6 @@
   color: var(--color-white);
 }
 
-.announcement-cta {
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.cta-text {
-  font-size: var(--font-tiny);
-  color: var(--color-white);
-}
 
 .close-announcement {
   position: absolute;
@@ -178,6 +168,40 @@
   background: rgba(80, 108, 131, 0.2);
 }
 
+/* HAMBURGER MENU */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-white);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.header-dark .hamburger-line {
+  background: var(--color-white);
+}
+
+.hamburger-line.active:nth-child(1) {
+  transform: rotate(45deg) translateY(5px);
+}
+
+.hamburger-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.active:nth-child(3) {
+  transform: rotate(-45deg) translateY(-5px);
+}
+
 /* ACTION BUTTON */
 .schedule-call-btn {
   display: flex;
@@ -237,20 +261,48 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .main-nav {
-    height: auto;
-    padding: 0.5rem 0;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .hamburger-menu {
+    display: flex;
   }
 
   .nav-menu {
+    position: fixed;
+    top: 7.8rem;
+    left: 0;
+    right: 0;
+    background: rgba(24, 26, 29, 0.98);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    gap: 0;
+  }
+
+  .nav-menu.nav-menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    padding: 1rem 0;
     width: 100%;
-    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-actions {
+    margin-top: 1rem;
   }
 
   .dropdown-menu {
@@ -258,15 +310,23 @@
     transform: none;
     width: 100%;
     border-radius: 0.5rem;
+    margin-top: 0.5rem;
   }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
   .announcement-bar {
-    flex-direction: column;
     height: auto;
     padding: 0.5rem;
+  }
+
+  .announcement-content {
+    justify-content: center;
+  }
+
+  .nav-menu {
+    top: 6.5rem;
   }
 
   .schedule-call-btn span {
