@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/sachinrsportfolio/static/css/main.3a0bf02a.css",
-    "main.js": "/sachinrsportfolio/static/js/main.1bf25886.js",
+    "main.css": "/sachinrsportfolio/static/css/main.bfb1c0c7.css",
+    "main.js": "/sachinrsportfolio/static/js/main.17e0d8da.js",
     "static/js/511.53ec4bc0.chunk.js": "/sachinrsportfolio/static/js/511.53ec4bc0.chunk.js",
+    "static/media/orignal.png": "/sachinrsportfolio/static/media/orignal.448084b8a57984a49f27.png",
     "static/media/wvw.png": "/sachinrsportfolio/static/media/wvw.015c324d96d6ce4d931e.png",
     "static/media/taurgo.png": "/sachinrsportfolio/static/media/taurgo.dcf5d05c2a1102c1ebab.png",
     "static/media/fit4life.png": "/sachinrsportfolio/static/media/fit4life.ba8a23e1fdf06469b4a4.png",
     "static/media/screencapture-localhost-3000-2024-12-08-03_31_59.png": "/sachinrsportfolio/static/media/screencapture-localhost-3000-2024-12-08-03_31_59.1422833871eddcd406aa.png",
     "static/media/saral.png": "/sachinrsportfolio/static/media/saral.5fa76ba79ecd7e73cb62.png",
     "static/media/redesignview.png": "/sachinrsportfolio/static/media/redesignview.02bacb85d08f2a48be46.png",
+    "static/media/redesign_by_Sachin_RS.jpg": "/sachinrsportfolio/static/media/redesign_by_Sachin_RS.a946998d8d080f58e475.jpg",
     "static/media/hero.png": "/sachinrsportfolio/static/media/hero.b3940961ba86ea71bf25.png",
-    "static/media/frame94.png": "/sachinrsportfolio/static/media/frame94.5971b15de8fa25c1868c.png",
     "static/media/1.png": "/sachinrsportfolio/static/media/1.0b2de63cbfc08a14e1d2.png",
     "static/media/4.png": "/sachinrsportfolio/static/media/4.9fadba8307d94265cd52.png",
     "static/media/3.png": "/sachinrsportfolio/static/media/3.e77e4fd732f3c6802f18.png",
     "static/media/2.png": "/sachinrsportfolio/static/media/2.0fadf74a0c120fe5717d.png",
     "static/media/logo.png": "/sachinrsportfolio/static/media/logo.bf6a8a07335dab368ce6.png",
     "index.html": "/sachinrsportfolio/index.html",
-    "main.3a0bf02a.css.map": "/sachinrsportfolio/static/css/main.3a0bf02a.css.map",
-    "main.1bf25886.js.map": "/sachinrsportfolio/static/js/main.1bf25886.js.map",
+    "main.bfb1c0c7.css.map": "/sachinrsportfolio/static/css/main.bfb1c0c7.css.map",
+    "main.17e0d8da.js.map": "/sachinrsportfolio/static/js/main.17e0d8da.js.map",
     "511.53ec4bc0.chunk.js.map": "/sachinrsportfolio/static/js/511.53ec4bc0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a0bf02a.css",
-    "static/js/main.1bf25886.js"
+    "static/css/main.bfb1c0c7.css",
+    "static/js/main.17e0d8da.js"
   ]
 }
