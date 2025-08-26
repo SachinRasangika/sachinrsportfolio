@@ -12,6 +12,7 @@ const Services = () => {
       title: 'Current Role: UI/UX Engineer Intern',
       description: 'HashBaze • Mar 2025 – Present',
       details: 'Designing intuitive interfaces, collaborating with product teams to improve user flows, and implementing design solutions that enhance platform usability and user satisfaction.',
+      image: 'https://media.licdn.com/dms/image/v2/D562DAQHzYGqiCwa1Lw/profile-treasury-image-shrink_800_800/B56ZbgeuX.HgAc-/0/1747522881571?e=1756774800&v=beta&t=rO_kTiIVW4l_F03rluAsEoOCi7Qf0PSJdXiLDEsKG_4',
       size: 'large'
     },
 
@@ -43,24 +44,36 @@ const Services = () => {
       size: 'small'
     },
     {
+      id: 'education-sliit-diploma',
+      icon: <FiBook />,
+      title: 'SLIIT City Uni',
+      description: 'Computing and Information Technology Higher Diploma',
+      details: 'Completed',
+      image: 'https://sliitcityuni.lk/wp-content/uploads/2025/07/sliit-city-uni.png',
+      size: 'medium'
+    },
+    {
       id: 'achievement-nasa',
       icon: <FiAward />,
       title: 'NASA Space Apps',
       description: 'Global Connection Award 2021',
+      image: 'https://media.licdn.com/dms/image/v2/D562DAQEIdV6Sj8RqYg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1720363597855?e=1756778400&v=beta&t=EdDpiA6kbZ2salpkiDKpBLrD44yPa_dvwCcCl6r7nls',
       size: 'small'
     },
     {
       id: 'achievement-designthon-2021',
       icon: <FiAward />,
       title: 'Designthon 2021',
-      description: 'Top 10 Finalist',
+      description: 'Top 10 Finalist - Merit Award',
+      image: 'https://media.licdn.com/dms/image/v2/D562DAQEy1f0Sy-AuyQ/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1720387511103?e=1756778400&v=beta&t=CNJr_dGHubId6tqCTFp3c5pW70UUgC7hiwordRTQI_8',
       size: 'small'
     },
     {
       id: 'achievement-designthon-2020',
       icon: <FiAward />,
-      title: 'Designthon 2020',
+      title: 'Designthon 2020 - Merit Award',
       description: 'Top 10 Finalist',
+      image: 'https://media.licdn.com/dms/image/v2/D562DAQFY5vIgXH4eXA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1720387767379?e=1756778400&v=beta&t=Q_rmensoXw6FC-nX3y68XLINyrBxfPsTMlLM3Q8mVAU',
       size: 'small'
     }
   ];
@@ -115,6 +128,12 @@ const Services = () => {
                 </div>
 
                 {service.details && <p className="service-details">{service.details}</p>}
+
+                {service.image && (
+                  <div className="service-hover-image">
+                    <img src={service.image} alt={service.title} />
+                  </div>
+                )}
               </div>
             </div>
           ))}

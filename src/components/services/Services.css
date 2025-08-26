@@ -116,7 +116,7 @@
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, minmax(200px, auto));
+  grid-template-rows: repeat(5, minmax(200px, auto));
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -124,7 +124,8 @@
     "large large medium1 medium1"
     "large large medium1 medium1"
     "small1 small2 medium2 medium2"
-    "small3 small4 medium2 medium2";
+    "small3 small4 medium2 medium2"
+    "small5 . . .";
 }
 
 /* =====================================
@@ -212,6 +213,11 @@
   animation-duration: 7.5s;
 }
 
+.service-card.small:nth-of-type(5) .service-card-background::after {
+  animation-delay: 7s;
+  animation-duration: 8s;
+}
+
 .service-card-background::before {
   content: '';
   position: absolute;
@@ -255,6 +261,11 @@
 
 .service-card.small:nth-of-type(4) {
   grid-area: small4;
+  min-height: 280px;
+}
+
+.service-card.small:nth-of-type(5) {
+  grid-area: small5;
   min-height: 280px;
 }
 
@@ -358,6 +369,112 @@
 
 .service-learn-more:hover {
   opacity: 0.8;
+}
+
+/* =====================================
+   SERVICE HOVER IMAGES
+   ===================================== */
+
+.service-hover-image {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.service-card:hover .service-hover-image {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.service-hover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  animation: imageBackgroundFlow 8s ease-in-out infinite;
+}
+
+.service-card:hover .service-hover-image img {
+  transform: scale(1.1);
+}
+
+/* Background animation for the hover image */
+@keyframes imageBackgroundFlow {
+  0%, 100% {
+    filter: brightness(1) contrast(1) saturate(1);
+    transform: scale(1);
+  }
+  25% {
+    filter: brightness(1.1) contrast(1.05) saturate(1.1);
+    transform: scale(1.02);
+  }
+  50% {
+    filter: brightness(1.05) contrast(1.1) saturate(1.05);
+    transform: scale(1.01);
+  }
+  75% {
+    filter: brightness(1.08) contrast(1.03) saturate(1.08);
+    transform: scale(1.03);
+  }
+}
+
+/* Add subtle overlay animation */
+.service-hover-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg,
+    transparent 0%,
+    rgba(80, 108, 131, 0.1) 25%,
+    rgba(232, 236, 240, 0.1) 50%,
+    rgba(80, 108, 131, 0.1) 75%,
+    transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  animation: overlayShimmer 3s ease-in-out infinite;
+}
+
+.service-card:hover .service-hover-image::before {
+  opacity: 1;
+}
+
+@keyframes overlayShimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive sizing for hover images */
+@media (max-width: 768px) {
+  .service-hover-image {
+    width: 100px;
+    height: 100px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-hover-image {
+    width: 80px;
+    height: 80px;
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
 
 /* =====================================
@@ -514,12 +631,13 @@
 
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, minmax(180px, auto));
+    grid-template-rows: repeat(5, minmax(180px, auto));
     grid-template-areas:
       "large large medium1"
       "large large medium1"
       "small1 small2 medium2"
-      "small3 small4 medium2";
+      "small3 small4 medium2"
+      "small5 . .";
   }
 }
 
@@ -550,14 +668,15 @@
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, minmax(180px, auto));
+    grid-template-rows: repeat(7, minmax(180px, auto));
     grid-template-areas:
       "large large"
       "large large"
       "medium1 medium1"
       "medium2 medium2"
       "small1 small2"
-      "small3 small4";
+      "small3 small4"
+      "small5 .";
   }
 
   .service-card.large {
@@ -572,7 +691,8 @@
   .service-card.small:nth-of-type(1),
   .service-card.small:nth-of-type(2),
   .service-card.small:nth-of-type(3),
-  .service-card.small:nth-of-type(4) {
+  .service-card.small:nth-of-type(4),
+  .service-card.small:nth-of-type(5) {
     min-height: 280px;
   }
 }
@@ -594,7 +714,7 @@
       "small2"
       "small3"
       "small4"
-      "common";
+      "small5";
   }
 
   .service-card {
@@ -613,7 +733,8 @@
   .service-card.small:nth-of-type(1),
   .service-card.small:nth-of-type(2),
   .service-card.small:nth-of-type(3),
-  .service-card.small:nth-of-type(4) {
+  .service-card.small:nth-of-type(4),
+  .service-card.small:nth-of-type(5) {
     min-height: 250px;
   }
 
