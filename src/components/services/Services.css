@@ -152,6 +152,64 @@
   inset: 0;
   border-radius: 12px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  overflow: hidden;
+}
+
+.service-card-background::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(80, 108, 131, 0.1) 35%,
+    rgba(232, 236, 240, 0.15) 40%,
+    rgba(80, 108, 131, 0.2) 45%,
+    rgba(232, 236, 240, 0.1) 50%,
+    rgba(80, 108, 131, 0.15) 55%,
+    transparent 60%
+  );
+  animation: waveFlow 8s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* Different wave delays for each card type */
+.service-card.large .service-card-background::after {
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+
+.service-card.medium:nth-of-type(1) .service-card-background::after {
+  animation-delay: 2s;
+  animation-duration: 9s;
+}
+
+.service-card.medium:nth-of-type(2) .service-card-background::after {
+  animation-delay: 4s;
+  animation-duration: 8s;
+}
+
+.service-card.small:nth-of-type(1) .service-card-background::after {
+  animation-delay: 1s;
+  animation-duration: 7s;
+}
+
+.service-card.small:nth-of-type(2) .service-card-background::after {
+  animation-delay: 3s;
+  animation-duration: 8.5s;
+}
+
+.service-card.small:nth-of-type(3) .service-card-background::after {
+  animation-delay: 5s;
+  animation-duration: 9.5s;
+}
+
+.service-card.small:nth-of-type(4) .service-card-background::after {
+  animation-delay: 6s;
+  animation-duration: 7.5s;
 }
 
 .service-card-background::before {
@@ -724,9 +782,41 @@
   .service-card-background::before {
     border: 2px solid rgba(255, 255, 255, 0.3);
   }
-  
+
   .service-link,
   .service-learn-more {
     text-decoration-thickness: 2px;
+  }
+}
+
+/* =====================================
+   WAVE ANIMATION KEYFRAMES
+   ===================================== */
+
+@keyframes waveFlow {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(0%) translateY(0%) rotate(180deg);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Disable wave animation on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-background::after {
+    animation: none;
   }
 }

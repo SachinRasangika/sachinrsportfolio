@@ -12,7 +12,7 @@ const About = () => {
           </div>
           
                 <h2 className="about-title">
-            Meet Sachin Silva - UI/UX Designer & Web Developer
+            Meet Sachin RS - UI/UX Designer & Web Developer
           </h2>
           
           <div className="about-description">
@@ -106,7 +106,7 @@ const About = () => {
           <div className="about-image-container">
             <img 
               src="https://media.licdn.com/dms/image/v2/D5603AQHVUP6mZ6Jy9A/profile-displayphoto-shrink_800_800/B56ZWaLrnwGQAc-/0/1742048508821?e=1758758400&v=beta&t=YOS5ZBJ7IfFsFN9DQlU8wt-xaJqAkHLnMRh0Sxqsqtc" 
-              alt="Sam Crawford giving speech" 
+              alt="Sachin RS" 
               className="about-image"
             />
           </div>

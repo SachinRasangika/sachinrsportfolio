@@ -23,9 +23,9 @@ const Resources = () => {
         <div className="resources-grid">
           <div className="resource-card blog-card">
             <div className="card-content">
-              <span className="card-category">Our Blogs</span>
+              <span className="card-category">Your Challenge, My Solution</span>
               <h3 className="card-title">
-                In-Depth Articles on Digital Experiences, Strategy, and Success
+                Your challenge, my craft. I turn ideas and problems into smooth, functional, and beautiful digital experiences.
               </h3>
             </div>
             <div className="card-image">
@@ -43,10 +43,9 @@ const Resources = () => {
 
           <div className="resource-card course-main-card">
             <div className="card-content">
-              <h3 className="card-title">Courses for SQSP Pros</h3>
+              <h3 className="card-title">UX Design & Prototyping</h3>
               <p className="card-description">
-                Learn the exact steps to scale your business to six figures so you can live 
-                the life of entrepreneurial freedom you've always dreamed of.
+                Learn the exact steps to conduct user research, create wireframes and prototypes in Figma, and test for usability to craft intuitive, high-performing interfaces.
               </p>
               <button className="access-btn">Access now</button>
             </div>
@@ -57,10 +56,9 @@ const Resources = () => {
 
           <div className="resource-card plugin-card">
             <div className="card-content">
-              <span className="card-category">Plugin Store</span>
+              <span className="card-category">AI Tools & Plugins</span>
               <h3 className="card-title">
-                Explore through a series of paid & free plugins to use in your design
-              </h3>
+Explore the AI tools and plugins I use to enhance design, improve UX, and create better digital products.              </h3>
               <button className="access-btn">Access now</button>
             </div>
             <div className="card-image">

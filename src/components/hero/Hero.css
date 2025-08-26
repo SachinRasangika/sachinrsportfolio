@@ -22,18 +22,149 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
 }
 .hero-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: cinematicBackdrop 20s ease-in-out infinite;
+  transform-origin: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Long Exposure Effect Layers */
+.hero-bg-layer-1,
+.hero-bg-layer-2,
+.hero-bg-layer-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* First blur layer - Light trails effect */
+.hero-bg-layer-1 {
+  filter: blur(6px) brightness(1.3) contrast(0.7) saturate(1.2);
+  opacity: 0.5;
+  animation: longExposureLayer1 28s ease-in-out infinite;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+/* Second blur layer - Motion blur effect */
+.hero-bg-layer-2 {
+  filter: blur(12px) brightness(1.5) contrast(0.5) saturate(0.8);
+  opacity: 0.35;
+  animation: longExposureLayer2 35s ease-in-out infinite reverse;
+  z-index: 3;
+  mix-blend-mode: overlay;
+}
+
+/* Third blur layer - Dreamy long exposure */
+.hero-bg-layer-3 {
+  filter: blur(20px) brightness(1.8) contrast(0.3) saturate(0.6);
+  opacity: 0.25;
+  animation: longExposureLayer3 42s ease-in-out infinite;
+  z-index: 4;
+  mix-blend-mode: soft-light;
+}
+
+/* Light Streaks for Long Exposure Effect */
+.light-streaks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.streak {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(232, 236, 240, 0.15) 50%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.streak-1 {
+  width: 200px;
+  height: 4px;
+  top: 20%;
+  left: -250px;
+  transform: rotate(15deg);
+  animation: lightStreak1 18s ease-in-out infinite;
+}
+
+.streak-2 {
+  width: 300px;
+  height: 6px;
+  top: 60%;
+  left: -350px;
+  transform: rotate(-10deg);
+  animation: lightStreak2 22s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.streak-3 {
+  width: 150px;
+  height: 3px;
+  top: 40%;
+  left: -200px;
+  transform: rotate(25deg);
+  animation: lightStreak3 15s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+.streak-4 {
+  width: 250px;
+  height: 5px;
+  top: 80%;
+  left: -300px;
+  transform: rotate(-5deg);
+  animation: lightStreak4 20s ease-in-out infinite;
+  animation-delay: 9s;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35); /* overlay for readability */
+  background: rgba(0, 0, 0, 0.177); /* overlay for readability */
   z-index: -1;
+  animation: cinematicOverlay 20s ease-in-out infinite;
+}
+
+/* Dark Readability Overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 30%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 6;
+  pointer-events: none;
 }
 
 /* Cinematic Background Effects */
@@ -51,7 +182,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(80, 108, 131, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(0, 0, 0, 0.104) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 20%, rgba(232, 236, 240, 0.08) 0%, transparent 50%),
     linear-gradient(135deg, rgba(24, 26, 29, 0.1) 0%, transparent 70%);
   z-index: 1;
@@ -63,8 +194,8 @@
   position: absolute;
   inset: 0;
   background:
-    conic-gradient(from 45deg at 20% 80%, transparent, rgba(80, 108, 131, 0.1), transparent),
-    conic-gradient(from 225deg at 80% 20%, transparent, rgba(232, 236, 240, 0.05), transparent);
+    conic-gradient(from 45deg at 20% 80%, transparent, rgba(0, 0, 0, 0.1), transparent),
+    conic-gradient(from 225deg at 80% 20%, transparent, rgba(0, 0, 0, 0.05), transparent);
   animation: rotate-rays 60s linear infinite;
   z-index: 2;
 }
@@ -72,6 +203,207 @@
 @keyframes rotate-rays {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Cinematic Background Animation */
+
+
+/* Cinematic Overlay Animation */
+@keyframes cinematicOverlay {
+  0% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  20% {
+    background: rgba(10, 20, 30, 0.38);
+  }
+  40% {
+    background: rgba(15, 25, 40, 0.42);
+  }
+  60% {
+    background: rgba(18, 28, 45, 0.45);
+  }
+  80% {
+    background: rgba(12, 22, 35, 0.40);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* =====================================
+   LONG EXPOSURE ANIMATION KEYFRAMES
+   ===================================== */
+
+/* Layer 1 Animation - Light trails and streaks */
+@keyframes longExposureLayer1 {
+  0% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(6px) brightness(1.3) contrast(0.7) saturate(1.2);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateX(8px) translateY(-4px) scale(1.02) rotate(1deg);
+    filter: blur(8px) brightness(1.4) contrast(0.6) saturate(1.3);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(12px) translateY(-8px) scale(1.04) rotate(2deg);
+    filter: blur(10px) brightness(1.5) contrast(0.5) saturate(1.4);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateX(6px) translateY(-6px) scale(1.03) rotate(1.5deg);
+    filter: blur(8px) brightness(1.4) contrast(0.6) saturate(1.3);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(6px) brightness(1.3) contrast(0.7) saturate(1.2);
+    opacity: 0.5;
+  }
+}
+
+/* Layer 2 Animation - Motion blur effect */
+@keyframes longExposureLayer2 {
+  0% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(12px) brightness(1.5) contrast(0.5) saturate(0.8);
+    opacity: 0.35;
+  }
+  20% {
+    transform: translateX(-6px) translateY(3px) scale(1.01) rotate(-0.5deg);
+    filter: blur(14px) brightness(1.6) contrast(0.4) saturate(0.7);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateX(-10px) translateY(6px) scale(1.02) rotate(-1deg);
+    filter: blur(16px) brightness(1.7) contrast(0.3) saturate(0.6);
+    opacity: 0.45;
+  }
+  60% {
+    transform: translateX(-8px) translateY(4px) scale(1.015) rotate(-0.8deg);
+    filter: blur(15px) brightness(1.65) contrast(0.35) saturate(0.65);
+    opacity: 0.42;
+  }
+  80% {
+    transform: translateX(-4px) translateY(2px) scale(1.005) rotate(-0.3deg);
+    filter: blur(13px) brightness(1.55) contrast(0.45) saturate(0.75);
+    opacity: 0.38;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(12px) brightness(1.5) contrast(0.5) saturate(0.8);
+    opacity: 0.35;
+  }
+}
+
+/* Layer 3 Animation - Dreamy long exposure */
+@keyframes longExposureLayer3 {
+  0% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(20px) brightness(1.8) contrast(0.3) saturate(0.6);
+    opacity: 0.25;
+  }
+  30% {
+    transform: translateX(15px) translateY(-10px) scale(1.03) rotate(2deg);
+    filter: blur(25px) brightness(2.0) contrast(0.2) saturate(0.5);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translateX(25px) translateY(-15px) scale(1.05) rotate(3deg);
+    filter: blur(30px) brightness(2.2) contrast(0.1) saturate(0.4);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+    filter: blur(20px) brightness(1.8) contrast(0.3) saturate(0.6);
+    opacity: 0.25;
+  }
+}
+
+/* Light Streak Animations */
+@keyframes lightStreak1 {
+  0% {
+    left: -250px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    left: 50%;
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    left: calc(100% + 250px);
+    opacity: 0;
+  }
+}
+
+@keyframes lightStreak2 {
+  0% {
+    left: -350px;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  55% {
+    left: 45%;
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    left: calc(100% + 350px);
+    opacity: 0;
+  }
+}
+
+@keyframes lightStreak3 {
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  60% {
+    left: 55%;
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    left: calc(100% + 200px);
+    opacity: 0;
+  }
+}
+
+@keyframes lightStreak4 {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.35;
+  }
+  48% {
+    left: 52%;
+    opacity: 0.75;
+  }
+  88% {
+    opacity: 0.35;
+  }
+  100% {
+    left: calc(100% + 300px);
+    opacity: 0;
+  }
 }
 
 .blur-orb {
@@ -89,7 +421,7 @@
 .blur-orb-1 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(80, 108, 131, 0.6), rgba(80, 108, 131, 0.3), rgba(80, 108, 131, 0.1));
+background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2), rgba(24, 26, 29, 0.1));
   top: 5%;
   left: 5%;
   animation-name: float1;
@@ -100,7 +432,7 @@
 .blur-orb-2 {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(106, 137, 159, 0.5), rgba(106, 137, 159, 0.25), rgba(106, 137, 159, 0.08));
+background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2), rgba(24, 26, 29, 0.1));
   top: 55%;
   right: 10%;
   animation-name: float2;
@@ -111,7 +443,7 @@
 .blur-orb-3 {
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(232, 236, 240, 0.3), rgba(232, 236, 240, 0.15), rgba(232, 236, 240, 0.05));
+background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2), rgba(24, 26, 29, 0.1));
   top: 25%;
   right: 25%;
   animation-name: float3;
@@ -133,7 +465,7 @@
 .blur-orb-5 {
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(61, 84, 102, 0.5), rgba(61, 84, 102, 0.25), rgba(61, 84, 102, 0.1));
+background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2), rgba(24, 26, 29, 0.1));
   top: 45%;
   left: 45%;
   animation-name: float5;
@@ -144,7 +476,7 @@
 .blur-orb-6 {
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(80, 108, 131, 0.3), rgba(80, 108, 131, 0.1), transparent);
+  background: radial-gradient(circle, rgba(3, 3, 3, 0.171), rgba(80, 108, 131, 0.1), transparent);
   top: 70%;
   right: 40%;
   animation-name: float6;
@@ -155,7 +487,7 @@
 .blur-orb-7 {
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(232, 236, 240, 0.2), rgba(232, 236, 240, 0.08), transparent);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.112), rgba(232, 236, 240, 0.08), transparent);
   top: 80%;
   left: 60%;
   animation-name: float7;
@@ -313,6 +645,8 @@
   justify-content: space-between;
   gap: 3rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 
 .hero-text {
@@ -446,6 +780,17 @@
     width: 70%;
     height: 70%;
   }
+
+  /* Slightly stronger overlay for tablets */
+  .hero::after {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.45) 30%,
+      rgba(0, 0, 0, 0.55) 70%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+  }
 }
 
 /* Mobiles */
@@ -490,6 +835,21 @@
     width: 50%;
     height: 50%;
   }
+
+  /* Optimize long exposure effects for mobile */
+  .hero-bg-layer-2, .hero-bg-layer-3 {
+    display: none; /* Hide heavy blur layers on mobile */
+  }
+
+  .hero-bg-layer-1 {
+    filter: blur(4px) brightness(1.2) contrast(0.8) saturate(1.1);
+    opacity: 0.4;
+    animation-duration: 20s;
+  }
+
+  .streak-3, .streak-4 {
+    display: none; /* Hide some light streaks on mobile */
+  }
 }
 
 /* Small Mobiles */
@@ -533,5 +893,72 @@
   .blur-effects::before,
   .blur-effects::after {
     opacity: 0.5;
+  }
+
+  /* Minimal long exposure effects for small mobile */
+  .hero-bg-layer-1,
+  .hero-bg-layer-2,
+  .hero-bg-layer-3 {
+    display: none;
+  }
+
+  .light-streaks {
+    opacity: 0.3;
+  }
+
+  .streak {
+    animation-duration: 12s !important;
+  }
+
+  /* Stronger dark overlay for small screens */
+  .hero::after {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.6) 30%,
+      rgba(0, 0, 0, 0.65) 70%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY: REDUCED MOTION
+   ===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-image,
+  .hero::before,
+  .blur-effects::after,
+  .blur-orb,
+  .hero-bg-layer-1,
+  .hero-bg-layer-2,
+  .hero-bg-layer-3,
+  .streak {
+    animation: none !important;
+  }
+
+  .hero-bg-image {
+    opacity: 0.8;
+    filter: none;
+    transform: none;
+  }
+
+  .hero::before {
+    background: rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .hero::after {
+    background: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .hero-bg-layer-1,
+  .hero-bg-layer-2,
+  .hero-bg-layer-3 {
+    display: none;
+  }
+
+  .light-streaks {
+    display: none;
   }
 }

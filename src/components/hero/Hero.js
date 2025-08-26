@@ -28,6 +28,31 @@ const Hero = () => {
           alt=""
         />
 
+        {/* Long Exposure Effect Layers */}
+        <img
+          className="hero-bg-layer-1"
+          src= {backgroundImage}
+          alt=""
+        />
+        <img
+          className="hero-bg-layer-2"
+          src= {backgroundImage}
+          alt=""
+        />
+        <img
+          className="hero-bg-layer-3"
+          src= {backgroundImage}
+          alt=""
+        />
+
+        {/* Light Streak Overlay for Long Exposure */}
+        <div className="light-streaks">
+          <div className="streak streak-1"></div>
+          <div className="streak streak-2"></div>
+          <div className="streak streak-3"></div>
+          <div className="streak streak-4"></div>
+        </div>
+
         {/* Cinematic Blur Effects */}
         <div className="blur-effects">
           <div className="blur-orb blur-orb-1"></div>
@@ -44,7 +69,7 @@ const Hero = () => {
         {/* Text Content */}
         <div className="hero-text">
           <h1 className="hero-title">
-            <span className="title-line">Sachin Silva</span>
+            <span className="title-line">Sachin RS</span>
             <span className="title-line">UI/UX Designer & Engineer</span>
           </h1>
 

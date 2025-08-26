@@ -10,12 +10,6 @@ const Footer = () => {
     { label: 'Book a call', href: '#' }
   ];
 
-  const resourceLinks = [
-    { label: 'Blog', href: '#' },
-    { label: 'Videos', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms & Conditions', href: '#' }
-  ];
 
   return (
     <footer className="footer">
@@ -48,25 +42,12 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            
-            <div className="footer-nav-section">
-              <h3 className="nav-section-title">Resources</h3>
-              <ul className="nav-links">
-                {resourceLinks.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} className="nav-link">
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
         
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p>© bycrawford.com. All rights reserved.</p>
+            <p>© sachinrsportfolio.com. Stable portfolio website content. All rights reserved.</p>
           </div>
           
           <div className="footer-social">
@@ -137,10 +118,9 @@ const Footer = () => {
         </div>
         
         <div className="footer-logo">
-          <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/12ea76c969ed39dbe7a6c27a1d38843962e584c6?width=2720" 
-            alt="by Crawford Logo" 
-          />
+          <div className="footer-name-container">
+            <h1 className="footer-name">Sachin RS</h1>
+          </div>
         </div>
       </div>
     </footer>
