@@ -1,142 +1,176 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Hero.css';
 import backgroundImage from '../../assets/hero.png';
 
 const Hero = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const [showVideo, setShowVideo] = useState(false);
 
-  const toggleAudio = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        audioRef.current.play();
-        setIsPlaying(true);
-      }
-    }
+  const toggleVideoMode = () => {
+    setShowVideo(!showVideo);
   };
 
   return (
-    <section className="hero" id="home">
-      {/* Background */}
-      <div className="hero-background">
-        <img
-          className="hero-bg-image"
-          src= {backgroundImage}
-          alt=""
-        />
+    <section className={`hero ${showVideo ? 'hero-video-mode' : ''}`} id="home">
+      {!showVideo ? (
+        // Original Hero Layout
+        <>
+          {/* Background */}
+          <div className="hero-background">
+            <img
+              className="hero-bg-image"
+              src={backgroundImage}
+              alt=""
+            />
 
-        {/* Long Exposure Effect Layers */}
-        <img
-          className="hero-bg-layer-1"
-          src= {backgroundImage}
-          alt=""
-        />
-        <img
-          className="hero-bg-layer-2"
-          src= {backgroundImage}
-          alt=""
-        />
-        <img
-          className="hero-bg-layer-3"
-          src= {backgroundImage}
-          alt=""
-        />
+            {/* Long Exposure Effect Layers */}
+            <img
+              className="hero-bg-layer-1"
+              src={backgroundImage}
+              alt=""
+            />
+            <img
+              className="hero-bg-layer-2"
+              src={backgroundImage}
+              alt=""
+            />
+            <img
+              className="hero-bg-layer-3"
+              src={backgroundImage}
+              alt=""
+            />
 
-        {/* Light Streak Overlay for Long Exposure */}
-        <div className="light-streaks">
-          <div className="streak streak-1"></div>
-          <div className="streak streak-2"></div>
-          <div className="streak streak-3"></div>
-          <div className="streak streak-4"></div>
-        </div>
+            {/* Light Streak Overlay for Long Exposure */}
+            <div className="light-streaks">
+              <div className="streak streak-1"></div>
+              <div className="streak streak-2"></div>
+              <div className="streak streak-3"></div>
+              <div className="streak streak-4"></div>
+            </div>
 
-        {/* Cinematic Blur Effects */}
-        <div className="blur-effects">
-          <div className="blur-orb blur-orb-1"></div>
-          <div className="blur-orb blur-orb-2"></div>
-          <div className="blur-orb blur-orb-3"></div>
-          <div className="blur-orb blur-orb-4"></div>
-          <div className="blur-orb blur-orb-5"></div>
-          <div className="blur-orb blur-orb-6"></div>
-          <div className="blur-orb blur-orb-7"></div>
-        </div>
-      </div>
-
-      <div className="hero-content">
-        {/* Text Content */}
-        <div className="hero-text">
-          <h1 className="hero-title">
-            <span className="title-line">Sachin RS</span>
-            <span className="title-line">UI/UX Designer & Engineer</span>
-          </h1>
-
-          <p className="hero-description">
-            Creative UI/UX Designer with strong experience in user-centered design and visual storytelling. Skilled in Figma, usability testing, design systems, and front-end development using HTML, CSS, JavaScript, React. Experienced in designing intuitive, high-performing digital products from concept to prototype.
-          </p>
-
-          {/* Buttons */}
-          <div className="hero-buttons">
-            {/* Listen to Myself */}
-            <button className="btn-primary" onClick={toggleAudio}>
-              <span>Listen to Myself</span>
-              {isPlaying ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="6" y="4" width="4" height="16" fill="#506C83"/>
-                  <rect x="14" y="4" width="4" height="16" fill="#506C83"/>
-                </svg>
-              ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <polygon points="5,3 19,12 5,21" fill="#506C83"/>
-                </svg>
-              )}
-            </button>
-            <audio 
-              ref={audioRef} 
-              onEnded={() => setIsPlaying(false)}
-              preload="metadata"
-            >
-              <source src="/voice-intro.mp3" type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
-
-            {/* Download CV */}
-            <button className="btn-secondary">
-              <a 
-                href="/Sachin_Silva_CV.pdf" 
-                download 
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                Download CV
-              </a>
-            </button>
+            {/* Cinematic Blur Effects */}
+            <div className="blur-effects">
+              <div className="blur-orb blur-orb-1"></div>
+              <div className="blur-orb blur-orb-2"></div>
+              <div className="blur-orb blur-orb-3"></div>
+              <div className="blur-orb blur-orb-4"></div>
+              <div className="blur-orb blur-orb-5"></div>
+              <div className="blur-orb blur-orb-6"></div>
+              <div className="blur-orb blur-orb-7"></div>
+            </div>
           </div>
 
-          {/* Awards
-          <div className="awards-container">
-            <div className="award-item">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/1f1b0d70c0194f565b035418dda9b15fce4a9668?width=271" alt="NASA Space App Challenge 2021" />
-            </div>
-            <div className="award-item">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/e104c7365eaa459121e17ff44d0f0662d6f7e24a?width=271" alt="Designathon 2021 SLIIT" />
-            </div>
-            <div className="award-item">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/37ca985ac464a87055945294f84b8f21d759ba1a?width=271" alt="Designathon 2020 SLIIT" />
-            </div>
-          </div> */}
-        </div>
+          <div className="hero-content">
+            {/* Text Content */}
+            <div className="hero-text">
+              <h1 className="hero-title">
+                <span className="title-line">Sachin RS</span>
+                <span className="title-line">UI/UX Designer & Engineer</span>
+              </h1>
 
-        {/* Profile Image */}
-        {/* <div className="hero-left-image">
-          <img 
-            src="https://media.licdn.com/dms/image/v2/D5603AQHVUP6mZ6Jy9A/profile-displayphoto-shrink_800_800/B56ZWaLrnwGQAc-/0/1742048508821?e=1758758400&v=beta&t=YOS5ZBJ7IfFsFN9DQlU8wt-xaJqAkHLnMRh0Sxqsqtc" 
-            alt="Sachin Silva" 
-            className="profile-image"
-          />
-        </div> */}
-      </div>
+              <p className="hero-description">
+                Creative UI/UX Designer with strong experience in user-centered design and visual storytelling. Skilled in Figma, usability testing, design systems, and front-end development using HTML, CSS, JavaScript, React. Experienced in designing intuitive, high-performing digital products from concept to prototype.
+              </p>
+
+              {/* Buttons */}
+              <div className="hero-buttons">
+                {/* Listen to Myself */}
+                <button className="btn-primary" onClick={toggleVideoMode}>
+                  <span>Listen to Myself</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="5,3 19,12 5,21" fill="#506C83"/>
+                  </svg>
+                </button>
+
+                {/* Download CV */}
+                <button className="btn-secondary">
+                  <a
+                    href="/Sachin_Silva_CV.pdf"
+                    download
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    Download CV
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        // Video Mode Layout
+        <>
+          {/* Video Background with Gradient */}
+          <div className="hero-video-background">
+            <div className="video-gradient-overlay"></div>
+          </div>
+
+          <div className="hero-video-content">
+            {/* Video Section */}
+            <div className="hero-video-section">
+              <div className="video-container">
+                <div style={{
+                  position: 'relative',
+                  width: '100%',
+                  height: '0px',
+                  paddingBottom: '177.778%'
+                }}>
+                  <iframe
+                    allow="fullscreen;autoplay"
+                    allowFullScreen
+                    height="100%"
+                    src="https://streamable.com/e/an5lgs?autoplay=1&muted=1&nocontrols=1"
+                    width="100%"
+                    style={{
+                      border: 'none',
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      left: '0px',
+                      top: '0px',
+                      overflow: 'hidden'
+                    }}
+                    title="Sachin RS Introduction Video"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="hero-video-text">
+              <h1 className="hero-title">
+                <span className="title-line">Sachin RS</span>
+                <span className="title-line">UI/UX Designer & Engineer</span>
+              </h1>
+
+              <p className="hero-description">
+                Watch my introduction and learn about my journey in UI/UX design and development.
+              </p>
+
+              {/* Buttons */}
+              <div className="hero-buttons">
+                {/* Stop Video */}
+                <button className="btn-primary" onClick={toggleVideoMode}>
+                  <span>Back to Portfolio</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="4" width="4" height="16" fill="#506C83"/>
+                    <rect x="14" y="4" width="4" height="16" fill="#506C83"/>
+                  </svg>
+                </button>
+
+                {/* Download CV */}
+                <button className="btn-secondary">
+                  <a
+                    href="/Sachin_Silva_CV.pdf"
+                    download
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    Download CV
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 };

@@ -40,26 +40,85 @@ const ProjectView = () => {
 
         <div className="horizontal-divider"></div>
 
-        {/* Only Image */}
-        {project.image && (
-          <div className="showcase-image-container">
-            <div className="image-mask">
-              <img
-                className="showcase-image"
-                src={project.image}
-                alt={project.title}
-              />
-              {project.overlayImage && (
-                <div className="image-overlay">
+        {/* Before/After Comparison or Single Image */}
+        {project.hasBeforeAfter ? (
+          <div className="before-after-section">
+            <div className="before-after-header">
+              <h3 className="comparison-title">Before & After</h3>
+              <p className="comparison-subtitle">Transform Wellness Website Redesign</p>
+            </div>
+
+            <div className="before-after-container">
+              <div className="before-image-section">
+                <div className="image-label before-label">
+                  <span>Before</span>
+                </div>
+                <div className="image-wrapper">
                   <img
-                    className="overlay-image"
-                    src={project.overlayImage}
-                    alt="Overlay"
+                    className="comparison-image before-image"
+                    src={project.beforeImage}
+                    alt={`${project.title} - Before`}
                   />
                 </div>
-              )}
+              </div>
+
+              <div className="after-image-section">
+                <div className="image-label after-label">
+                  <span>After</span>
+                </div>
+                <div className="image-wrapper">
+                  <img
+                    className="comparison-image after-image"
+                    src={project.afterImage}
+                    alt={`${project.title} - After`}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project Details */}
+            <div className="project-details-section">
+              <div className="details-grid">
+                <div className="detail-item">
+                  <h4>Client</h4>
+                  <p>{project.client}</p>
+                </div>
+                <div className="detail-item">
+                  <h4>Date</h4>
+                  <p>{project.date}</p>
+                </div>
+                <div className="detail-item">
+                  <h4>Technologies</h4>
+                  <p>{project.technologies}</p>
+                </div>
+                <div className="detail-item">
+                  <h4>Category</h4>
+                  <p>{project.category}</p>
+                </div>
+              </div>
             </div>
           </div>
+        ) : (
+          project.image && (
+            <div className="showcase-image-container">
+              <div className="image-mask">
+                <img
+                  className="showcase-image"
+                  src={project.image}
+                  alt={project.title}
+                />
+                {project.overlayImage && (
+                  <div className="image-overlay">
+                    <img
+                      className="overlay-image"
+                      src={project.overlayImage}
+                      alt="Overlay"
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          )
         )}
       </div>
     </div>

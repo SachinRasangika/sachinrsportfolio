@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar, Hero, About, Services, Portfolio, Process, Resources, Contact, Footer, ProjectView } from './components';
+import { Navbar, Hero, About, Services, Portfolio, Process, Resources, Testimonials, Contact, Footer, ProjectView } from './components';
 import { initPerformanceOptimizations } from './utils/performance';
 import './App.css';
 
@@ -37,6 +37,7 @@ function App() {
               <Portfolio />
               <Process />
               <Resources />
+              <Testimonials />
               <Contact />
               <Footer />
             </>

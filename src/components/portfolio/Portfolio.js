@@ -1,14 +1,14 @@
 import React from 'react';
 import './Portfolio.css';
 import { useNavigate } from 'react-router-dom';
-
-import p1 from "../../assets/images/frame94.png";
 import p2 from "../../assets/images/redesignview.png";
 import p3 from "../../assets/images/wvw.png";
 import saralImage from "../../assets/images/saral.png";
 import project4Image from "../../assets/images/screencapture-localhost-3000-2024-12-08-03_31_59.png";
 import fit4LifeImage from "../../assets/images/fit4life.png";
 import taurgoImage from "../../assets/images/taurgo.png";
+import bradfordBeforeImage from "../../assets/images/orignal.png";
+import bradfordAfterImage from "../../assets/images/redesign_by_Sachin_RS.jpg";
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -16,6 +16,19 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
+      title: "Dr.Perkins Homepage Redesign",
+      category: "Website Redesign",
+      image: bradfordAfterImage,
+      description: "Redesign the homepage of Dr. Bradford Perkins (Transform Wellness) to create a premium, minimal, and inviting digital experience that emphasizes precision medicine, longevity, and holistic personalized care. The new design replaces the existing clinical medical site and aims to feel like a luxury wellness brand.",
+      client: "Voxal, LLC (for Dr. Bradford Perkins – Transform Wellness)",
+      date: "July 8, 2025",
+      technologies: "Figma, Adobe XD, HTML, CSS, JavaScript, React",
+      beforeImage: bradfordBeforeImage,
+      afterImage: bradfordAfterImage,
+      hasBeforeAfter: true
+    },
+    {
+      id: 2,
       title: "Water Villa World",
       category: "Travel",
       image: p3,
@@ -25,7 +38,7 @@ const Portfolio = () => {
       technologies: "React, Node.js, MongoDB, Stripe API"
     },
     {
-      id: 2,
+      id: 3,
       title: "Web Design & Development",
       category: "Non-profit",
       image: p2,
@@ -35,7 +48,7 @@ const Portfolio = () => {
       technologies: "React, CSS3, Firebase, Payment Gateway"
     },
     {
-      id: 3,
+      id: 4,
       title: "Saral.edu UI Design",
       category: "Education",
       image: saralImage,
@@ -45,7 +58,7 @@ const Portfolio = () => {
       technologies: "React, Material-UI, Chart.js, REST API"
     },
     {
-      id: 4,
+      id: 5,
       title: "Water World Kelaniya",
       category: "Homepage Recreation",
       image: project4Image,
@@ -55,7 +68,7 @@ const Portfolio = () => {
       technologies: "HTML5, CSS3, JavaScript, WordPress"
     },
     {
-      id: 5,
+      id: 6,
       title: "Fit4Life Fitness Tracker",
       category: "Web App",
       image: fit4LifeImage,
@@ -65,7 +78,7 @@ const Portfolio = () => {
       technologies: "React, Express.js, PostgreSQL, Chart.js"
     },
     {
-      id: 6,
+      id: 7,
       title: "Taurgo SaaS Platform",
       category: "SaaS",
       image: taurgoImage,

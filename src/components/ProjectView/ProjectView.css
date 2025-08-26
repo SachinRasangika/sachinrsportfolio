@@ -134,6 +134,219 @@
   .full-image { width: 100%; }
 }
 
+/* Before/After Comparison Styles */
+.before-after-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.before-after-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.comparison-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 500;
+  color: #181A1D;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.comparison-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #506C83;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.before-after-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  width: 100%;
+}
+
+.before-image-section,
+.after-image-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.image-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.before-label {
+  background: rgba(255, 107, 107, 0.1);
+  color: #E53E3E;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.after-label {
+  background: rgba(72, 187, 120, 0.1);
+  color: #38A169;
+  border: 1px solid rgba(72, 187, 120, 0.2);
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.comparison-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.comparison-image:hover {
+  transform: scale(1.02);
+}
+
+/* Project Details Section */
+.project-details-section {
+  margin-top: 48px;
+  padding: 32px;
+  background: rgba(232, 236, 240, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(80, 108, 131, 0.1);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.detail-item h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #506C83;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #181A1D;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design for Before/After */
+@media (max-width: 1024px) {
+  .before-after-container {
+    gap: 24px;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .project-details-section {
+    padding: 24px;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .before-after-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .before-after-section {
+    gap: 24px;
+  }
+
+  .comparison-title {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .comparison-subtitle {
+    font-size: 14px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-details-section {
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .detail-item h4 {
+    font-size: 13px;
+  }
+
+  .detail-item p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .before-after-header {
+    margin-bottom: 16px;
+  }
+
+  .image-label {
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+
+  .project-details-section {
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  .details-grid {
+    gap: 12px;
+  }
+
+  .detail-item h4 {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .detail-item p {
+    font-size: 14px;
+  }
+}
+
 /* Ensure text wraps */
 .project-description p, .metadata-value { white-space: normal; word-break: break-word; hyphens: auto; }
 a { word-break: break-all; overflow-wrap: break-word; }
