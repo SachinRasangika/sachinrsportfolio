@@ -5,6 +5,8 @@ import backgroundImage from '../../assets/hero.png';
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [currentBgColor, setCurrentBgColor] = useState('#000000');
+  const [videoKey, setVideoKey] = useState(0);
+  const [audioEnabled, setAudioEnabled] = useState(false);
 
   // Array of colors that match video aesthetics
   const videoColors = [
@@ -39,7 +41,21 @@ const Hero = () => {
     };
   }, [showVideo]);
 
+  const enableAudio = () => {
+    setAudioEnabled(true);
+    setVideoKey(prev => prev + 1);
+  };
+
   const toggleVideoMode = () => {
+    if (!showVideo) {
+      // Force iframe reload with new key to ensure fresh permissions
+      setVideoKey(prev => prev + 1);
+      // Auto-enable audio on user interaction (when starting video)
+      setAudioEnabled(true);
+    } else {
+      // Reset audio state when closing video
+      setAudioEnabled(false);
+    }
     setShowVideo(!showVideo);
   };
 
@@ -183,10 +199,11 @@ const Hero = () => {
                   paddingBottom: '177.778%'
                 }}>
                   <iframe
-                    allow="fullscreen;autoplay"
+                    key={videoKey}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowFullScreen
                     height="100%"
-                    src="https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=0"
+                    src={`https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=0&muted=${audioEnabled ? '0' : '1'}&t=${videoKey}`}
                     width="100%"
                     style={{
                       border: 'none',
@@ -198,7 +215,43 @@ const Hero = () => {
                       overflow: 'hidden'
                     }}
                     title="Sachin RS Motivation Video"
+                    sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                   />
+
+                  {/* Audio enabler for mobile browsers - appears briefly */}
+                  {!audioEnabled && (
+                    <button
+                      onClick={enableAudio}
+                      style={{
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                        border: '2px solid rgba(255, 255, 255, 0.3)',
+                        borderRadius: '50%',
+                        width: '48px',
+                        height: '48px',
+                        color: 'white',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 1001,
+                        transition: 'all 0.3s ease',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.background = 'rgba(80, 108, 131, 0.8)';
+                        e.target.style.transform = 'scale(1.05)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.background = 'rgba(0, 0, 0, 0.7)';
+                        e.target.style.transform = 'scale(1)';
+                      }}
+                    >
+                      🔊
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
