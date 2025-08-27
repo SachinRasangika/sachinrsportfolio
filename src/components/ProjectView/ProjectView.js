@@ -23,22 +23,43 @@ const ProjectView = () => {
 
   return (
     <div className="project-container">
-      <button className="back-btn" onClick={() => navigate('/')}>← Back to Portfolio</button>
-
-      {/* Header Section */}
+      {/* New Cinematic Header Section */}
       <div className="project-content">
-        <div className="project-header">
-          <h1 className="project-title">{project.title}</h1>
-          <div className="saas-badge">
-            <div className="badge-dot"></div>
-            <span className="badge-text">{project.category}</span>
+        <div className="project-hero-header">
+          {/* Background Effects */}
+          <div className="project-header-background">
+            <div className="header-blur-orbs">
+              <div className="header-orb header-orb-1"></div>
+              <div className="header-orb header-orb-2"></div>
+              <div className="header-orb header-orb-3"></div>
+            </div>
+            <div className="header-gradient-overlay"></div>
           </div>
-          <div className="project-description">
-            <p>{project.description}</p>
+
+          {/* Header Content */}
+          <div className="project-header-content">
+            {/* Centered Back Button */}
+            <div className="back-button-container">
+              <button className="back-btn" onClick={() => navigate('/')}>← Back to Portfolio</button>
+            </div>
+            <div className="project-category-badge">
+              <div className="category-icon">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                </svg>
+              </div>
+              <span className="category-text">{project.category}</span>
+            </div>
+
+            <h1 className="project-hero-title">
+              <span className="title-highlight">{project.title}</span>
+            </h1>
+
+            <div className="project-hero-description">
+              <p>{project.description}</p>
+            </div>
           </div>
         </div>
-
-        <div className="horizontal-divider"></div>
 
         {/* Before/After Comparison or Single Image */}
         {project.hasBeforeAfter ? (

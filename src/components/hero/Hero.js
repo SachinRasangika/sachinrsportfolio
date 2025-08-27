@@ -203,7 +203,7 @@ const Hero = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowFullScreen
                     height="100%"
-                    src={`https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=0&muted=${audioEnabled ? '0' : '1'}&t=${videoKey}`}
+                    src={`https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=0&muted=${audioEnabled ? '0' : '1'}`}
                     width="100%"
                     style={{
                       border: 'none',
