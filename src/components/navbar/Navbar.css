@@ -82,6 +82,9 @@
   width: 7rem;
   height: auto;
   transition: all 0.3s ease;
+  display: block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 /* Ensure logo visibility in both modes */
@@ -181,6 +184,30 @@
   gap: 3px;
   padding: 8px;
   z-index: 1001;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.header-dark .hamburger-menu {
+  background: rgba(24, 26, 29, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.header-dark .hamburger-menu:hover {
+  background: rgba(24, 26, 29, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hamburger-line {
@@ -221,6 +248,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .schedule-call-btn:hover {
@@ -245,29 +274,65 @@
 @media (max-width: 1024px) {
   .nav-container {
     padding: 0 1rem;
+    max-width: 100%;
   }
 
   .nav-menu {
-    flex-wrap: wrap;
-    gap: 0.25rem;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
   }
 
   .nav-link,
   .nav-dropdown-trigger {
     font-size: var(--font-small);
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
   }
 
   .schedule-call-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1rem;
     font-size: var(--font-small);
+  }
+
+  .logo img {
+    width: 6rem;
   }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+  .main-nav {
+    height: 4rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   .hamburger-menu {
     display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
   }
 
   .nav-menu {
@@ -278,14 +343,22 @@
     background: rgba(24, 26, 29, 0.98);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 999;
     gap: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Remove from document flow when hidden */
+    pointer-events: none;
+  }
+
+  .nav-menu.nav-menu-open {
+    pointer-events: auto;
   }
 
   .nav-menu.nav-menu-open {
@@ -300,6 +373,12 @@
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
   }
 
   .nav-link:last-child {
@@ -307,7 +386,21 @@
   }
 
   .nav-actions {
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .schedule-call-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .dropdown-menu {
@@ -316,6 +409,7 @@
     width: 100%;
     border-radius: 0.5rem;
     margin-top: 0.5rem;
+    background: rgba(40, 42, 45, 0.95);
   }
 }
 
@@ -324,24 +418,66 @@
   .announcement-bar {
     height: auto;
     padding: 0.5rem;
+    font-size: 0.75rem;
   }
 
   .announcement-content {
     justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .announcement-text {
+    font-size: 0.75rem;
+  }
+
+  .main-nav {
+    height: 3.5rem;
+  }
+
+  .nav-container {
+    padding: 0 0.75rem;
+    height: 100%;
+  }
+
+  .logo {
+    height: 100%;
+  }
+
+  .logo img {
+    width: 5.5rem;
   }
 
   .nav-menu {
     top: 6.5rem;
+    padding: 1rem 0.75rem;
   }
 
-  .schedule-call-btn span {
-    display: none;
+  .nav-link {
+    padding: 0.875rem 0;
+    font-size: 0.9rem;
+  }
+
+  .nav-actions {
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .schedule-call-btn {
-    width: 2.75rem;
-    height: 2.75rem;
-    justify-content: center;
-    padding: 0;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    min-height: auto;
+  }
+
+  .schedule-call-btn span {
+    display: block;
+  }
+
+  .hamburger-menu {
+    padding: 6px;
+  }
+
+  .hamburger-line {
+    width: 18px;
   }
 }

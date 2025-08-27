@@ -83,7 +83,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0 0 24px 0;
+  margin: 0 0 40px 0;
   padding: 0;
 }
 
@@ -126,12 +126,109 @@
   object-fit: contain; /* prevents cropping */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .full-image { width: 100%; }
+/* =====================================
+   RESPONSIVE DESIGN
+   ===================================== */
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .project-container {
+    padding: 100px 16px 32px;
+  }
+
+  .showcase-image-container {
+    padding: 0 32px;
+  }
+
+  .project-title {
+    font-size: clamp(28px, 4.5vw, 40px);
+  }
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .project-container {
+    padding: 90px 16px 24px;
+  }
+
+  .showcase-image-container {
+    padding: 0 16px;
+  }
+
+  .project-content {
+    gap: 24px;
+  }
+
+  .project-header {
+    gap: 16px;
+  }
+
+  .project-title {
+    font-size: clamp(24px, 6vw, 32px);
+    margin-bottom: 32px;
+  }
+
+  .project-description p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .back-btn {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .full-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+/* Small Mobile Responsive */
 @media (max-width: 480px) {
-  .full-image { width: 100%; }
+  .project-container {
+    padding: 80px 12px 20px;
+  }
+
+  .showcase-image-container {
+    padding: 0 8px;
+  }
+
+  .project-content {
+    gap: 20px;
+  }
+
+  .project-header {
+    gap: 12px;
+  }
+
+  .saas-badge {
+    margin-bottom: 20px;
+    padding: 4px 10px;
+  }
+
+  .badge-text {
+    font-size: 12px;
+  }
+
+  .project-title {
+    font-size: clamp(20px, 7vw, 28px);
+    margin-bottom: 24px;
+  }
+
+  .project-description p {
+    font-size: 13px;
+  }
+
+  .back-btn {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .full-image {
+    width: 100%;
+    border-radius: 6px;
+  }
 }
 
 /* Before/After Comparison Styles */

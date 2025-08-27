@@ -186,7 +186,7 @@ const Hero = () => {
                     allow="fullscreen;autoplay"
                     allowFullScreen
                     height="100%"
-                    src="https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=1"
+                    src="https://streamable.com/e/c9u0u5?autoplay=1&nocontrols=0"
                     width="100%"
                     style={{
                       border: 'none',

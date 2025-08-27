@@ -759,94 +759,119 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
     flex-direction: column;
     text-align: center;
     gap: 2rem;
-    padding-top: 5rem;
+    padding: 5rem 1.5rem 2rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
-  .hero-left-image {
-    order: 0;
-    width: 260px;
-    height: 300px;
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .title-line {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   /* Reduce blur effect intensity on tablets */
   .blur-orb {
     filter: blur(50px);
-    opacity: 0.35;
+    opacity: 0.3;
   }
   .blur-orb-1, .blur-orb-2, .blur-orb-3, .blur-orb-4, .blur-orb-5 {
-    width: 75%;
-    height: 75%;
-  }
-  .blur-orb-6, .blur-orb-7 {
     width: 70%;
     height: 70%;
   }
-
-  /* Slightly stronger overlay for tablets */
-  .hero::after {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.45) 30%,
-      rgba(0, 0, 0, 0.55) 70%,
-      rgba(0, 0, 0, 0.75) 100%
-    );
+  .blur-orb-6, .blur-orb-7 {
+    width: 60%;
+    height: 60%;
   }
 }
 
 /* Mobiles */
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+  }
+
   .hero-content {
     text-align: center;
     justify-content: center;
     align-items: center;
-    padding: 6rem 1rem 2rem;
+    padding: 5rem 1rem 2rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .hero-text {
     max-width: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   .hero-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     width: 100%;
   }
+
   .title-line {
-    font-size: clamp(1.5rem, 6vw, 2.25rem);
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
     text-align: center;
+    display: block;
+    line-height: 1.2;
   }
+
   .hero-description {
-    font-size: var(--font-tiny);
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
     text-align: center;
     max-width: 100%;
+    padding: 0 1rem;
   }
+
   .hero-buttons {
     justify-content: center;
     margin-bottom: 2rem;
     width: 100%;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
+
   .btn-primary, .btn-secondary {
-    font-size: var(--font-tiny);
-    padding: 0.75rem 1.25rem;
-  }
-  .awards-container {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    max-width: 280px;
     justify-content: center;
-  }
-  .award-item {
-    flex: 0 0 100px;
-    height: 60px;
   }
 
   /* Optimize blur effects for mobile */
   .blur-orb {
-    filter: blur(35px);
-    opacity: 0.25;
-    animation-duration: 18s !important;
+    filter: blur(30px);
+    opacity: 0.2;
+    animation-duration: 15s !important;
   }
   .blur-orb-1, .blur-orb-2, .blur-orb-3, .blur-orb-4, .blur-orb-5 {
     width: 55%;
@@ -876,73 +901,86 @@ background: radial-gradient(circle, rgba(24, 26, 29, 0.4), rgba(24, 26, 29, 0.2)
 /* Small Mobiles */
 @media (max-width: 480px) {
   .hero-content {
-    padding: 4rem 1rem 2rem;
+    padding: 4rem 0.75rem 2rem;
     text-align: center;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
   }
 
   .hero-text {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
-  .hero-left-image {
-    width: 200px;
-    height: 240px;
+  .hero-title {
+    margin-bottom: 1rem;
   }
+
+  .title-line {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
   .hero-buttons {
     flex-direction: column;
     gap: 0.75rem;
     width: 100%;
     align-items: center;
+    margin-bottom: 1.5rem;
   }
+
   .btn-primary, .btn-secondary {
     width: 100%;
-    max-width: 280px;
-  }
-  .awards-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    width: 100%;
+    max-width: 260px;
+    font-size: 0.85rem;
+    padding: 0.75rem 1.25rem;
   }
 
   /* Minimal blur effects for performance */
   .blur-orb {
-    filter: blur(25px);
-    opacity: 0.2;
-    animation-duration: 12s !important;
+    filter: blur(20px);
+    opacity: 0.15;
+    animation-duration: 10s !important;
   }
+
   .blur-orb-4, .blur-orb-5, .blur-orb-6, .blur-orb-7 {
     display: none; /* Hide some orbs on small screens for performance */
   }
-  .blur-orb-1, .blur-orb-2, .blur-orb-3 {
-    width: 45%;
-    height: 45%;
-  }
 
-  /* Disable complex background animations on small screens */
-  .blur-effects::before,
-  .blur-effects::after {
-    opacity: 0.5;
+  .blur-orb-1, .blur-orb-2, .blur-orb-3 {
+    width: 40%;
+    height: 40%;
   }
 
   /* Minimal long exposure effects for small mobile */
-  .hero-bg-layer-1,
   .hero-bg-layer-2,
   .hero-bg-layer-3 {
     display: none;
   }
 
-  .light-streaks {
+  .hero-bg-layer-1 {
+    filter: blur(3px) brightness(1.1);
     opacity: 0.3;
   }
 
+  .light-streaks {
+    opacity: 0.2;
+  }
+
   .streak {
-    animation-duration: 12s !important;
+    animation-duration: 8s !important;
+  }
+
+  .streak-3, .streak-4 {
+    display: none;
   }
 
   /* Stronger dark overlay for small screens */
