@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import backgroundImage from '../../assets/hero.png';
+import heroPortrait from '../../assets/heropp.png';
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -10,16 +11,16 @@ const Hero = () => {
 
   // Array of colors that match video aesthetics
   const videoColors = [
-    '#000000', // Pure black
-    '#1a1a1a', // Dark grey
-    '#2d2d2d', // Medium dark grey
-    '#0d1117', // GitHub dark
-    '#161b22', // Darker blue-grey
-    '#21262d', // Medium blue-grey
-    '#101010', // Very dark grey
-    '#1c1c1c', // Dark grey variant
-    '#0a0a0a', // Almost black
-    '#252525', // Light dark grey
+    '#000000',
+    '#1a1a1a',
+    '#2d2d2d',
+    '#0d1117',
+    '#161b22',
+    '#21262d',
+    '#101010',
+    '#1c1c1c',
+    '#0a0a0a',
+    '#252525',
   ];
 
   useEffect(() => {
@@ -29,9 +30,9 @@ const Hero = () => {
       colorInterval = setInterval(() => {
         const randomColor = videoColors[Math.floor(Math.random() * videoColors.length)];
         setCurrentBgColor(randomColor);
-      }, 1000); // Change every second
+      }, 1000);
     } else {
-      setCurrentBgColor('#000000'); // Reset to black when not in video mode
+      setCurrentBgColor('#000000');
     }
 
     return () => {
@@ -48,12 +49,9 @@ const Hero = () => {
 
   const toggleVideoMode = () => {
     if (!showVideo) {
-      // Force iframe reload with new key to ensure fresh permissions
       setVideoKey(prev => prev + 1);
-      // Auto-enable audio on user interaction (when starting video)
       setAudioEnabled(true);
     } else {
-      // Reset audio state when closing video
       setAudioEnabled(false);
     }
     setShowVideo(!showVideo);
@@ -62,7 +60,6 @@ const Hero = () => {
   return (
     <section className={`hero ${showVideo ? 'hero-video-mode' : ''}`} id="home">
       {!showVideo ? (
-        // Original Hero Layout
         <>
           {/* Background */}
           <div className="hero-background">
@@ -123,7 +120,6 @@ const Hero = () => {
 
               {/* Buttons */}
               <div className="hero-buttons">
-                {/* Listen to Myself */}
                 <button className="btn-primary" onClick={toggleVideoMode}>
                   <span>Listen to my motivation</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +127,6 @@ const Hero = () => {
                   </svg>
                 </button>
 
-                {/* Download CV */}
                 <button className="btn-secondary">
                   <a
                     href="/Sachin_Silva_UIUX.pdf"
@@ -143,10 +138,12 @@ const Hero = () => {
                 </button>
               </div>
             </div>
+            <div className="hero-portrait-card">
+              <img src={heroPortrait} alt="Profile" className="hero-portrait-image" />
+            </div>
           </div>
         </>
       ) : (
-        // Video Mode Layout
         <>
           {/* Video Background with Gradient */}
           <div className="hero-video-background" style={{ backgroundColor: currentBgColor }}>
@@ -165,9 +162,7 @@ const Hero = () => {
                 Watch my introduction and learn about my journey in UI/UX design and development.
               </p>
 
-              {/* Buttons */}
               <div className="hero-buttons">
-                {/* Stop Video */}
                 <button className="btn-primary" onClick={toggleVideoMode}>
                   <span>Back to Portfolio</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +171,6 @@ const Hero = () => {
                   </svg>
                 </button>
 
-                {/* Download CV */}
                 <button className="btn-secondary">
                   <a
                     href="/Sachin_Silva_UIUX.pdf"

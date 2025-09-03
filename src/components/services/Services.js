@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiUser, FiBook, FiAward, FiBriefcase } from 'react-icons/fi'; // Import needed icons
 import './Services.css';
+import imgHashbaze from '../../assets/Hashbaze.JPG';
+import imgTaurgo from '../../assets/taurgo.png';
+import imgGlobal from '../../assets/GlobalConnectionAward.jpeg';
+import imgCF2021 from '../../assets/CODEFEST2021.jpeg';
+import imgCF2020 from '../../assets/CODEFEST2020.jpeg';
 
 const Services = () => {
+  const [lightbox, setLightbox] = useState({ open: false, src: '', alt: '' });
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setLightbox({ open: false, src: '', alt: '' }); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const openLightbox = (src, alt) => setLightbox({ open: true, src, alt });
+  const closeLightbox = () => setLightbox({ open: false, src: '', alt: '' });
+
   const services = [
     // ================= BENTO GRID CARDS =================
     // Large Card (Main Feature)
@@ -12,7 +28,7 @@ const Services = () => {
       title: 'Current Role: UI/UX Engineer Intern',
       description: 'HashBaze • Mar 2025 – Present',
       details: 'Designing intuitive interfaces, collaborating with product teams to improve user flows, and implementing design solutions that enhance platform usability and user satisfaction.',
-      image: 'https://media.licdn.com/dms/image/v2/D562DAQHzYGqiCwa1Lw/profile-treasury-image-shrink_800_800/B56ZbgeuX.HgAc-/0/1747522881571?e=1756774800&v=beta&t=rO_kTiIVW4l_F03rluAsEoOCi7Qf0PSJdXiLDEsKG_4',
+      image: imgHashbaze,
       size: 'large'
     },
 
@@ -23,6 +39,7 @@ const Services = () => {
       title: 'Previous Experience',
       description: 'Taurgo • UI/UX Designer Intern',
       details: 'Aug 2024 – Feb 2025: Led responsive web component design, streamlined UX for multiple projects, and contributed to design system improvements.',
+      image: imgTaurgo,
       size: 'medium'
     },
     {
@@ -57,7 +74,7 @@ const Services = () => {
       icon: <FiAward />,
       title: 'NASA Space Apps',
       description: 'Global Connection Award 2021',
-      image: 'https://media.licdn.com/dms/image/v2/D562DAQEIdV6Sj8RqYg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1720363597855?e=1756778400&v=beta&t=EdDpiA6kbZ2salpkiDKpBLrD44yPa_dvwCcCl6r7nls',
+      image: imgGlobal,
       size: 'small'
     },
     {
@@ -65,7 +82,7 @@ const Services = () => {
       icon: <FiAward />,
       title: 'Designthon 2021',
       description: 'Top 10 Finalist - Merit Award',
-      image: 'https://media.licdn.com/dms/image/v2/D562DAQEy1f0Sy-AuyQ/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1720387511103?e=1756778400&v=beta&t=CNJr_dGHubId6tqCTFp3c5pW70UUgC7hiwordRTQI_8',
+      image: imgCF2021,
       size: 'small'
     },
     {
@@ -73,7 +90,7 @@ const Services = () => {
       icon: <FiAward />,
       title: 'Designthon 2020 - Merit Award',
       description: 'Top 10 Finalist',
-      image: 'https://media.licdn.com/dms/image/v2/D562DAQFY5vIgXH4eXA/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1720387767379?e=1756778400&v=beta&t=Q_rmensoXw6FC-nX3y68XLINyrBxfPsTMlLM3Q8mVAU',
+      image: imgCF2020,
       size: 'small'
     }
   ];
@@ -130,7 +147,7 @@ const Services = () => {
                 {service.details && <p className="service-details">{service.details}</p>}
 
                 {service.image && (
-                  <div className="service-hover-image">
+                  <div className="service-hover-image" onClick={() => openLightbox(service.image, service.title)} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') openLightbox(service.image, service.title); }}>
                     <img src={service.image} alt={service.title} />
                   </div>
                 )}
@@ -139,6 +156,16 @@ const Services = () => {
           ))}
         </div>
       </div>
+
+      {lightbox.open && (
+        <div className="services-lightbox" onClick={closeLightbox} role="dialog" aria-modal="true">
+          <div className="services-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="services-lightbox-close" onClick={closeLightbox} aria-label="Close image">×</button>
+            <img src={lightbox.src} alt={lightbox.alt} />
+            <div className="services-lightbox-caption">{lightbox.alt}</div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -29,6 +29,15 @@ const Testimonials = () => {
       avatar: "https://media.licdn.com/dms/image/v2/D5603AQFWa0KUCS2PGA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1684086857448?e=1759363200&v=beta&t=Ai03ABsyKIP6JwBdMdihTa6TED5OL2F3VMavjZODscQ",
       verified: true,
       rating: 5
+    },
+    {
+      id: 4,
+      name: "Shehan Thilakarathna",
+      title: "UI/UX Designer | UED | Framer",
+      text: "I had the pleasure of working with Sachin at HashBaze. He is creative, hardworking, and always willing to support the team. His problem-solving skills and eye for detail made a big impact on our projects. I highly recommend him!",
+      avatar: "https://media.licdn.com/dms/image/v2/D5603AQEXghLtwS_R6g/profile-displayphoto-shrink_800_800/B56ZO6IRSXHoAk-/0/1733994552175?e=1759968000&v=beta&t=91w-82vdmOokntpgPBBwfFYVUtZ1F9GGUxOMN05nZrw",
+      verified: true,
+      rating: 5
     }
   ];
 
