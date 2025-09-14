@@ -17,7 +17,7 @@ const Testimonials = () => {
       name: "Hoshan Kalana Abeysiriwardana",
       title: "Senior Web Developer at Enfection",
       text: "Sachin's redesign of our website has greatly enhanced its functionality and appeal. As a UK-based non-profit working with Theravada Buddhist monks, academics, and scholars, our mission to provide a communal platform and repository for Theravada Buddhist texts and cultural articles is now more effectively realized. The new design is user-friendly and visually appealing, making our resources more accessible to the public and beneficial to the broader artistic development of Buddhist culture. Sachin's work has been invaluable in advancing our mission.",
-      avatar: "https://media.licdn.com/dms/image/v2/D5635AQGiLFnVES2U6g/profile-framedphoto-shrink_800_800/B56ZX3Q6zzHQAg-/0/1743610163203?e=1756857600&v=beta&t=FtQzJxyDxwdCYwRL7ardx2NYH3F8xn6MtstiNx_Z3K0",
+      avatar: "https://media.licdn.com/dms/image/v2/D5635AQGiLFnVES2U6g/profile-framedphoto-shrink_800_800/B56ZX3Q6zzHQAg-/0/1743610163203?e=1758488400&v=beta&t=wNKh26fE7oVJaeG-0-Z2UOOTv3ydA9DhNjSTE1Bk_Dg",
       verified: true,
       rating: 5
     },
@@ -91,41 +91,49 @@ const Testimonials = () => {
       <div className="testimonials-content">
         <div className="testimonials-slider">
           <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className={`testimonial-card ${index % 2 === 1 ? 'card-offset' : ''}`}>
-                <div className="card-header">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name}
-                    className="avatar"
-                  />
-                  
-                  <div className="user-info">
-                    <div className="user-details">
-                      <div className="user-name">{testimonial.name}</div>
-                      {testimonial.title && (
-                        <div className="user-title">{testimonial.title}</div>
+            {[...testimonials, ...testimonials].map((testimonial, index) => {
+              const originalIndex = index % testimonials.length;
+              const isDuplicate = index >= testimonials.length;
+              return (
+                <div
+                  key={`${testimonial.id}-${isDuplicate ? 'dup' : 'orig'}`}
+                  className={`testimonial-card ${originalIndex % 2 === 1 ? 'card-offset' : ''}`}
+                  aria-hidden={isDuplicate}
+                >
+                  <div className="card-header">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="avatar"
+                    />
+
+                    <div className="user-info">
+                      <div className="user-details">
+                        <div className="user-name">{testimonial.name}</div>
+                        {testimonial.title && (
+                          <div className="user-title">{testimonial.title}</div>
+                        )}
+                      </div>
+                      {testimonial.verified && (
+                        <div className="verified-badge">
+                          <VerifiedIcon />
+                        </div>
                       )}
                     </div>
-                    {testimonial.verified && (
-                      <div className="verified-badge">
-                        <VerifiedIcon />
-                      </div>
-                    )}
+
+                    <div className="rating">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <StarIcon key={i} />
+                      ))}
+                    </div>
                   </div>
-                  
-                  <div className="rating">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <StarIcon key={i} />
-                    ))}
+
+                  <div className="testimonial-text">
+                    {testimonial.text}
                   </div>
                 </div>
-                
-                <div className="testimonial-text">
-                  {testimonial.text}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         
