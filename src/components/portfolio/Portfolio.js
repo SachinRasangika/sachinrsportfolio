@@ -134,7 +134,11 @@ const Portfolio = () => {
                 </div>
 
                 <div className="project-image-container">
-                  <img src={project.image} alt={`${project.title} website project`} className="project-image" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website project`}
+                    className="project-image project-image-pan"
+                  />
                 </div>
               </div>
             ))}

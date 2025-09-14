@@ -234,6 +234,24 @@
   background: rgba(80, 108, 131, 0.5);
 }
 
+.project-image-pan {
+  will-change: object-position;
+  object-fit: cover;
+  object-position: top center;
+  animation: project-pan-object 30s ease-in-out infinite alternate;
+}
+
+@keyframes project-pan-object {
+  0% { object-position: top center; }
+  100% { object-position: bottom center; }
+}
+
+.project-card .project-image-pan { animation-duration: 30s; animation-timing-function: ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .project-image-pan { animation: none; object-position: center center; }
+}
+
 @media (max-width: 1200px) {
   .portfolio-content {
     padding: 0 1.5rem;

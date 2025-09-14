@@ -38,6 +38,24 @@ const Testimonials = () => {
       avatar: "https://media.licdn.com/dms/image/v2/D5603AQEXghLtwS_R6g/profile-displayphoto-shrink_800_800/B56ZO6IRSXHoAk-/0/1733994552175?e=1759968000&v=beta&t=91w-82vdmOokntpgPBBwfFYVUtZ1F9GGUxOMN05nZrw",
       verified: true,
       rating: 5
+    },
+    {
+      id: 5,
+      name: "Bashan Sandeepa",
+      title: "UI UX Designer | Graphic Designer | Frontend Developer",
+      text: "Sachin Rasangika is a creative and detail-oriented UI designer who always delivers engaging user experiences. He is collaborative, professional, and a great team player.",
+      avatar: "https://media.licdn.com/dms/image/v2/D5603AQHzsh2tG6woig/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723453543747?e=1760572800&v=beta&t=u9YBeub6yPM5RbIfKY-ZlPkzR_3t4pNnVmpX_grpBIY",
+      verified: true,
+      rating: 5
+    },
+    {
+      id: 6,
+      name: "Umesha Anjani",
+      title: "UI/UX Designer | Graphic Designer | BSc(Hons) in IT&M | Google UX Certified",
+      text: "I have the pleasure of working with Sachin at Hashbaze, and I am impressed by his creative and very innovative mindset. He approaches challenges with problem-solving skills and consistently delivers clean UI designs that bring real value to company process. I wish him all the very best in his future career.",
+      avatar: "https://mir-s3-cdn-cf.behance.net/user/276/0d64d1508151005.66fff1e2a326d.jpg",
+      verified: true,
+      rating: 5
     }
   ];
 
