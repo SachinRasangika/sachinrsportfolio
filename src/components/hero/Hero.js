@@ -3,25 +3,24 @@ import './Hero.css';
 import backgroundImage from '../../assets/hero.png';
 import heroPortrait from '../../assets/heropp.png';
 
+const videoColors = [
+  '#000000',
+  '#1a1a1a',
+  '#2d2d2d',
+  '#0d1117',
+  '#161b22',
+  '#21262d',
+  '#101010',
+  '#1c1c1c',
+  '#0a0a0a',
+  '#252525',
+];
+
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [currentBgColor, setCurrentBgColor] = useState('#000000');
   const [videoKey, setVideoKey] = useState(0);
   const [audioEnabled, setAudioEnabled] = useState(false);
-
-  // Array of colors that match video aesthetics
-  const videoColors = [
-    '#000000',
-    '#1a1a1a',
-    '#2d2d2d',
-    '#0d1117',
-    '#161b22',
-    '#21262d',
-    '#101010',
-    '#1c1c1c',
-    '#0a0a0a',
-    '#252525',
-  ];
 
   useEffect(() => {
     let colorInterval;

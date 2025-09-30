@@ -9,6 +9,7 @@ import fit4LifeImage from "../../assets/images/fit4life.png";
 import taurgoImage from "../../assets/images/taurgo.png";
 import bradfordBeforeImage from "../../assets/images/orignal.png";
 import bradfordAfterImage from "../../assets/images/redesign_by_Sachin_RS.jpg";
+import lotteryGameImage from "../../assets/images/LotteryGameApp.png";
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -86,6 +87,16 @@ const Portfolio = () => {
       client: "Taurgo Technologies",
       date: "July 2024",
       technologies: "React, Node.js, PostgreSQL, Docker, AWS"
+    },
+    {
+      id: 8,
+      title: "Lottery Game App Concept",
+      category: "Concept Design",
+      image: lotteryGameImage,
+      description: "Lottery App Concept Design ♠️ 🎰 🎲 I was given a wireframe and style requirements to create a lottery app concept. The requirements included designing a UI color scheme aligned with the Indian and Southeast Asian market, crafting a visual style inspired by traditional elements while keeping it modern and user-friendly, and developing two detailed game icons in a realistic, textured 3D style. For this concept, I focused on matching fonts, iconography, and color palettes to reflect the cultural theme, blending kingdom-inspired aesthetics with a clear, engaging user experience.",
+      client: "Concept Design Study",
+      date: "January 2025",
+      technologies: "Figma, Adobe Illustrator, Blender"
     },
   ];
 

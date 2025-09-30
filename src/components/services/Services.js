@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FiUser, FiBook, FiAward, FiBriefcase } from 'react-icons/fi'; // Import needed icons
+import { useState, useEffect } from 'react';
+import { FiBook, FiAward, FiBriefcase } from 'react-icons/fi'; // Import needed icons
 import './Services.css';
 import imgHashbaze from '../../assets/Hashbaze.JPG';
 import imgTaurgo from '../../assets/taurgo.png';
