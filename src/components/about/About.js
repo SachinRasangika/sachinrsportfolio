@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './About.css';
-import meImage from '../../assets/me.jpeg';
+import pp2Image from '../../assets/images/Home/pp2.jpg';
 
 const About = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <section className="about" id="about">
       <div className="about-container">
@@ -104,26 +110,21 @@ const About = () => {
         </div>
         
         <div className="about-image-section">
-          <div className="about-image-container">
-            <img 
-              src={meImage} 
-              alt="Sachin RS" 
-              className="about-image"
-            />
-          </div>
-          
-          <div className="stats-overlay">
-            <div className="stat-item">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Successful Websites</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">05</div>
-              <div className="stat-label">Awards Won</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Client Satisfaction</div>
+          <div className="about-video-container">
+            {!isVideoLoaded && (
+              <div className="video-placeholder">
+                <img src={pp2Image} alt="Video Placeholder" className="placeholder-image" />
+              </div>
+            )}
+            <div className="video-container" style={{ display: isVideoLoaded ? 'block' : 'none' }}>
+              <iframe
+                className="video-iframe"
+                src="https://streamable.com/e/psjdkd?autoplay=1&nocontrols=1"
+                allow="fullscreen;autoplay"
+                allowFullScreen
+                title="Sachin RS Portfolio Video"
+                onLoad={handleVideoLoad}
+              />
             </div>
           </div>
         </div>

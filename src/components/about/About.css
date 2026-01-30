@@ -160,6 +160,59 @@
   object-fit: cover;
 }
 
+.about-video-container {
+  width: 560px;
+  border-radius: 24px;
+  border: 10px solid rgba(24, 26, 29, 0.10);
+  overflow: hidden;
+  position: relative;
+}
+
+.about-video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(70.71% 70.71% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 135%;
+}
+
+.video-iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 135%;
+  background: #000;
+}
+
+.placeholder-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .stats-overlay {
   position: absolute;
   bottom: 3rem;
@@ -221,12 +274,16 @@
     gap: 3rem;
     text-align: center;
   }
-  
+
   .about-image-container {
     width: 480px;
     height: 560px;
   }
-  
+
+  .about-video-container {
+    width: 480px;
+  }
+
   .stats-overlay {
     width: 440px;
   }
@@ -236,40 +293,44 @@
   .about {
     padding: 3rem 0;
   }
-  
+
   .about-container {
     padding: 0 1.5rem;
     gap: 2.5rem;
   }
-  
+
   .about-title {
     font-size: clamp(24px, 6vw, 36px);
     margin-bottom: 1.5rem;
   }
-  
+
   .about-description {
     font-size: 14px;
     margin-bottom: 2rem;
   }
-  
+
   .about-image-container {
     width: 400px;
     height: 480px;
   }
-  
+
+  .about-video-container {
+    width: 400px;
+  }
+
   .stats-overlay {
     width: 360px;
     height: 100px;
   }
-  
+
   .stat-number {
     font-size: 28px;
   }
-  
+
   .stat-label {
     font-size: 12px;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -279,16 +340,20 @@
   .about-container {
     padding: 0 1rem;
   }
-  
+
   .about-title {
     font-size: clamp(20px, 7vw, 28px);
   }
-  
+
   .about-image-container {
     width: 320px;
     height: 400px;
   }
-  
+
+  .about-video-container {
+    width: 320px;
+  }
+
   .stats-overlay {
     width: 300px;
     height: 90px;
@@ -296,26 +361,26 @@
     gap: 0.5rem;
     padding: 15px;
   }
-  
+
   .stat-item {
     flex-direction: row;
     padding: 5px 10px;
     gap: 10px;
   }
-  
+
   .stat-item:not(:last-child)::after {
     display: none;
   }
-  
+
   .stat-number {
     font-size: 20px;
     margin-bottom: 0;
   }
-  
+
   .stat-label {
     font-size: 11px;
   }
-  
+
   .social-link {
     width: 56px;
     height: 44px;
