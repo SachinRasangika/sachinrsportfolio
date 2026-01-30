@@ -1,6 +1,6 @@
 import React from 'react';
 import './Resources.css';
-import grid1 from '../../assets/images/Home/1.png';
+import grid1 from '../../assets/images/Home/pp.PNG';
 import grid2 from '../../assets/images/Home/2.png';
 import grid3 from '../../assets/images/Home/3.png';
 import grid4 from '../../assets/images/Home/4.png';

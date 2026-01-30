@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 import meImage from '../../assets/me.jpeg';
+import placeholderImage from '../../assets/images/Home/pp.PNG';
 
 const About = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
   return (
     <section className="about" id="about">
       <div className="about-container">
@@ -105,11 +107,22 @@ const About = () => {
         
         <div className="about-image-section">
           <div className="about-image-container">
-            <img 
-              src={meImage} 
-              alt="Sachin RS" 
-              className="about-image"
-            />
+            {!videoLoaded && (
+              <img
+                src={placeholderImage}
+                alt="Placeholder"
+                className="about-image"
+              />
+            )}
+            <div className={`video-wrapper ${videoLoaded ? 'video-visible' : 'video-hidden'}`}>
+              <iframe
+                allow="fullscreen;autoplay"
+                allowFullScreen
+                src="https://streamable.com/e/psjdkd?autoplay=1&nocontrols=1"
+                className="video-iframe"
+                onLoad={() => setVideoLoaded(true)}
+              />
+            </div>
           </div>
           
           <div className="stats-overlay">
