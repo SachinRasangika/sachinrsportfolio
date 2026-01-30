@@ -25,7 +25,7 @@ const Services = () => {
     {
       id: 'experience-hashbaze',
       icon: <FiBriefcase />,
-      title: 'Current Role: UI/UX Engineer Intern',
+      title: 'Current Role: Associate UI/UX Engineer',
       description: 'HashBaze • Mar 2025 – Present',
       details: 'Designing intuitive interfaces, collaborating with product teams to improve user flows, and implementing design solutions that enhance platform usability and user satisfaction.',
       image: imgHashbaze,

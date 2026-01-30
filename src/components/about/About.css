@@ -257,12 +257,16 @@
     gap: 3rem;
     text-align: center;
   }
-  
+
   .about-image-container {
     width: 480px;
     height: auto;
   }
-  
+
+  .about-video-container {
+    width: 480px;
+  }
+
   .stats-overlay {
     width: 440px;
   }
@@ -272,40 +276,44 @@
   .about {
     padding: 3rem 0;
   }
-  
+
   .about-container {
     padding: 0 1.5rem;
     gap: 2.5rem;
   }
-  
+
   .about-title {
     font-size: clamp(24px, 6vw, 36px);
     margin-bottom: 1.5rem;
   }
-  
+
   .about-description {
     font-size: 14px;
     margin-bottom: 2rem;
   }
-  
+
   .about-image-container {
     width: 400px;
     height: auto;
   }
-  
+
+  .about-video-container {
+    width: 400px;
+  }
+
   .stats-overlay {
     width: 360px;
     height: 100px;
   }
-  
+
   .stat-number {
     font-size: 28px;
   }
-  
+
   .stat-label {
     font-size: 12px;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -315,16 +323,20 @@
   .about-container {
     padding: 0 1rem;
   }
-  
+
   .about-title {
     font-size: clamp(20px, 7vw, 28px);
   }
-  
+
   .about-image-container {
     width: 320px;
     height: auto;
   }
-  
+
+  .about-video-container {
+    width: 320px;
+  }
+
   .stats-overlay {
     width: 300px;
     height: 90px;
@@ -332,26 +344,26 @@
     gap: 0.5rem;
     padding: 15px;
   }
-  
+
   .stat-item {
     flex-direction: row;
     padding: 5px 10px;
     gap: 10px;
   }
-  
+
   .stat-item:not(:last-child)::after {
     display: none;
   }
-  
+
   .stat-number {
     font-size: 20px;
     margin-bottom: 0;
   }
-  
+
   .stat-label {
     font-size: 11px;
   }
-  
+
   .social-link {
     width: 56px;
     height: 44px;
